@@ -1,0 +1,439 @@
+/* Copyright 2014 Richard Fellinger */
+#ifndef __SOCKET_STREAM_HEADER__
+#define __SOCKET_STREAM_HEADER__
+
+#include <memory>
+#include <streambuf>
+#include <istream>
+#include <ostream>
+#include <cstring>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <unistd.h>
+
+#include "config.h"
+
+#ifdef USE_SSL
+#	include <openssl/ssl.h>
+#	include <openssl/err.h>
+#endif
+
+#include <iostream>
+
+namespace NetStream {
+
+/*
+ * basic_streambuf implementation for a socket.
+ *
+ */
+template<typename charT, typename traits = std::char_traits<charT>>
+class basic_sockbuf : public std::basic_streambuf<charT, traits>
+{
+public:
+
+	typedef std::basic_streambuf<charT, traits> buf_type;
+	typedef std::basic_ostream<charT, traits> stream_type;
+
+// construction
+public:
+
+	basic_sockbuf(int sock_fd = -1, int bufsz = 8192) : m_sock_fd(-1), m_bufsz(bufsz) { set_sock_fd(sock_fd); }
+	basic_sockbuf(basic_sockbuf&& that)
+		:	buf_type(std::move(that)),
+			m_sock_fd(that.m_sock_fd),
+			m_bufsz(that.m_bufsz),
+			m_ibuf(std::move(that.m_ibuf)),
+			m_obuf(std::move(that.m_obuf))
+	{
+		that.m_sock_fd = -1;
+	}
+	basic_sockbuf(const basic_sockbuf&) = delete;
+	~basic_sockbuf() { sync(); }
+
+// attributes
+public:
+
+	int get_buffer_size() const { return m_bufsz; }
+
+	int get_sock_fd() const { return m_sock_fd; }
+	void set_sock_fd(int sock_fd) { m_sock_fd = sock_fd; init_io_buf(); }
+
+// operations
+public:
+
+	basic_sockbuf<charT, traits>& operator =(basic_sockbuf<charT, traits>&& that)
+	{
+		buf_type::operator =(std::move(that));
+		std::swap(m_sock_fd, that.m_sock_fd);
+		m_ibuf = std::move(that.m_ibuf);
+		m_obuf = std::move(that.m_obuf);
+	}
+
+// implementation
+protected:
+
+	// override: add to output buffer, write if full
+	typename buf_type::int_type overflow(typename buf_type::int_type c)
+	{
+		if(c != buf_type::traits_type::eof())
+		{
+			*buf_type::pptr() = c;
+			buf_type::pbump(1);
+		}
+
+		typename buf_type::int_type status = write_buf();
+		return (status == buf_type::traits_type::eof()) ? status : c;
+	}
+
+	// override
+	int sync()
+	{
+		typename buf_type::int_type status = write_buf();
+		return (status == buf_type::traits_type::eof()) ? status : 0;
+	}
+
+	// override: read from socket if buffer is empty
+	typename buf_type::int_type underflow()
+	{
+		// return char if not at end
+		if(buf_type::gptr() < buf_type::egptr())
+			return *buf_type::gptr();
+
+		// read from the socket (return value is number of characters which may not be equal to byte size)
+		int c_size = read_buf();
+		if(c_size == buf_type::traits_type::eof())
+			return c_size;
+
+		// return trhe char
+		charT* ptr = m_ibuf.get();
+		buf_type::setg(ptr, ptr, ptr + c_size);
+		return buf_type::traits_type::to_int_type(*buf_type::gptr());
+	}
+
+	virtual int write_buf()
+	{
+		const int num = buf_type::pptr() - buf_type::pbase();
+		const int bytesz = num * sizeof(charT);
+		const int wrsz = send(m_sock_fd, reinterpret_cast<void*>(m_obuf.get()), bytesz, 0);
+		if(bytesz != wrsz)
+			return buf_type::traits_type::eof();
+		buf_type::pbump(-num);
+		return num;
+	}
+
+	virtual int read_buf()
+	{
+		// read from socket and check for error
+		int bytesz = recv(m_sock_fd, reinterpret_cast<void*>(m_ibuf.get()), m_bufsz * sizeof(charT), 0);
+		if(bytesz <= 0)
+			return buf_type::traits_type::eof();
+		return bytesz / sizeof(charT);
+	}
+
+	void init_io_buf()
+	{
+		if(m_sock_fd < 0)
+		{
+			m_ibuf.reset(nullptr);
+			m_obuf.reset(nullptr);
+			return;
+		}
+
+		struct stat statbuf;
+		if(0 == fstat(m_sock_fd, &statbuf))
+			m_bufsz = statbuf.st_blksize * sizeof(charT);
+		m_ibuf.reset(new charT[m_bufsz]);
+		m_obuf.reset(new charT[m_bufsz]);
+		buf_type::setp(m_obuf.get(), m_obuf.get() + (m_bufsz - 1));
+		buf_type::setg(m_ibuf.get(), m_ibuf.get(), m_ibuf.get());
+	}
+
+	// socket file descriptor
+	int m_sock_fd;
+
+	// I/O buffer
+	int m_bufsz;
+	std::unique_ptr<charT[]> m_ibuf;
+	std::unique_ptr<charT[]> m_obuf;
+};
+
+typedef basic_sockbuf<char> sockbuf;
+typedef basic_sockbuf<wchar_t> wsockbuf;
+
+// helper functions
+std::unique_ptr<addrinfo, void(*)(addrinfo*)> get_addr_info(const char *node, const char *service);
+bool connect_socket(int sockfd, const sockaddr *p_addr, socklen_t addrlen);
+
+#ifdef USE_SSL
+/*
+ * basic_streambuf implementation for a socket using SSL.
+ *
+ */
+template<typename charT, typename traits = std::char_traits<charT>>
+class basic_sslsockbuf : public basic_sockbuf<charT, traits>
+{
+public:
+
+	typedef basic_sockbuf<charT, traits> buf_type;
+
+// construction
+public:
+
+	basic_sslsockbuf(int sock_fd = -1, int bufsz = 8192)
+		:	basic_sockbuf<charT, traits>(sock_fd, bufsz),
+			m_ctxptr(nullptr, ::SSL_CTX_free),
+			m_sslptr(nullptr, ::SSL_free) {}
+	basic_sslsockbuf(basic_sslsockbuf&& that)
+		:	basic_sockbuf<charT, traits>(std::move(that)),
+			m_ctxptr(std::move(that.m_ctxptr)),
+			m_sslptr(std::move(that.m_sslptr)) {}
+	basic_sslsockbuf(const basic_sslsockbuf&) = delete;
+	~basic_sslsockbuf() { /* sync(); */ }
+
+// attributes
+public:
+
+	SSL_CTX *get_ssl_ctx() const { return m_ctxptr.get(); }
+	SSL *get_ssl() const { return m_sslptr.get(); }
+
+// operations
+public:
+
+	void alloc_ssl()
+	{
+		if(basic_sockbuf<charT, traits>::m_sock_fd >= 0)
+		{
+			m_ctxptr.reset(::SSL_CTX_new(SSLv3_client_method()));
+			m_sslptr.reset(::SSL_new(m_ctxptr.get()));
+			SSL_set_fd(m_sslptr.get(), basic_sockbuf<charT, traits>::m_sock_fd);
+			SSL_set_mode(m_sslptr.get(), SSL_MODE_AUTO_RETRY);
+		}
+	}
+
+	void free_ssl()
+	{
+		m_sslptr.reset(0);
+		m_ctxptr.reset(0);
+	}
+
+	basic_sslsockbuf<charT, traits>& operator =(basic_sslsockbuf<charT, traits>&& that)
+	{
+		buf_type::operator =(that);
+		m_ctxptr = std::move(that.m_ctxptr);
+		m_sslptr = std::move(that.m_sslptr);
+	}
+
+	basic_sslsockbuf<charT, traits>& operator =(const basic_sslsockbuf<charT, traits>&) = delete;
+
+// implementation
+protected:
+
+	virtual int write_buf()
+	{
+		const int num = buf_type::pptr() - buf_type::pbase();
+		const int len = num * sizeof(charT);
+		int ssl_status, errnum = 0;
+		do
+		{
+			// write the data...need to re-call SSL_write on SSL_ERROR_WANT_WRITE or SSL_ERROR_WANT_READ
+			ssl_status = ::SSL_write(m_sslptr.get(), buf_type::m_obuf.get(), len);
+			if(ssl_status <= 0)
+				errnum = SSL_get_error(m_sslptr.get(), ssl_status);
+		} while((ssl_status < 0) && ((SSL_ERROR_WANT_WRITE == errnum) || (SSL_ERROR_WANT_READ == errnum)));
+
+		// error condition other than SSL_ERROR_WANT_WRITE or SSL_ERROR_WANT_READ
+		if(ssl_status <= 0)
+			return buf_type::traits_type::eof();
+		buf_type::pbump(-num);
+		return num;
+	}
+
+	virtual int read_buf()
+	{
+		// read from socket and check for error
+		const int ssl_status = ::SSL_read(m_sslptr.get(), buf_type::m_ibuf.get(), buf_type::m_bufsz);
+
+		// return eof() for error condition or character size on success
+		return (ssl_status <= 0) ? buf_type::traits_type::eof() : ssl_status / sizeof(charT);
+	}
+
+	// SSL data structures
+	std::unique_ptr<SSL_CTX, void(*)(SSL_CTX*)> m_ctxptr;
+	std::unique_ptr<SSL, void(*)(SSL*)> m_sslptr;
+};
+#endif /* USE_SSL */
+
+/*
+ * basic_iostream for a socket.
+ *
+ */
+template<typename charT, typename bufT = basic_sockbuf<charT>, typename traits = std::char_traits<charT>>
+class basic_sockstream : public std::basic_iostream<charT, traits>
+{
+public:
+
+	typedef std::basic_iostream<charT, traits> stream_type;
+
+// construction
+public:
+
+	basic_sockstream(int bufsz = 8192) : stream_type(&m_buf), m_buf(-1, bufsz) {}
+	basic_sockstream(const char *node, const char *service, int bufsz = 8192) : stream_type(&m_buf), m_buf(-1, bufsz) { open(node, service); }
+	basic_sockstream(const sockaddr *p_addr, socklen_t addrlen, int bufsz = 8192)
+		: stream_type(&m_buf), m_buf(-1, bufsz) { open(p_addr, addrlen); }
+	basic_sockstream(const sockaddr& addr, socklen_t addrlen, int bufsz = 8192)
+		: stream_type(&m_buf), m_buf(-1, bufsz) { open(&addr, addrlen); }
+	basic_sockstream(int sock_fd, int bufsz = 8192) : stream_type(&m_buf), m_buf(sock_fd, bufsz) {}
+	basic_sockstream(basic_sockstream&& that) : stream_type(&m_buf), m_buf(std::move(that.m_buf)) {}
+	~basic_sockstream() { close(); }
+
+// operations
+public:
+
+	void open(const char *node, const char *service)
+	{
+		// get the sockaddr for the named host and service
+		std::unique_ptr<addrinfo, void(*)(addrinfo*)> addr_ptr = get_addr_info(node, service);
+		if(!addr_ptr)
+		{
+			// this call may throw depending on 'exceptions' settings
+			std::basic_ios<charT, traits>::setstate(std::ios::failbit);
+			return;
+		}
+
+		open(addr_ptr->ai_addr, addr_ptr->ai_addrlen);
+	}
+
+
+	void open(const sockaddr *p_addr, socklen_t addrlen)
+	{
+		// close any existing socket and connect to the given addr
+		disconnect();
+		connect(p_addr, addrlen);
+	}
+
+	void close() { disconnect(); }
+
+// implementation
+protected:
+
+	virtual void connect(const sockaddr *p_addr, socklen_t addrlen)
+	{
+		// create the socket
+		if(m_buf.get_sock_fd() < 0)
+		{
+			int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
+			if(-1 == sock_fd)
+			{
+				stream_type::setstate(stream_type::rdstate() | std::ios::failbit);
+				return;
+			}
+
+			// set the socket descriptor
+			m_buf.set_sock_fd(sock_fd);
+		}
+
+		if(!connect_socket(m_buf.get_sock_fd(), p_addr, addrlen))
+		{
+			m_buf.set_sock_fd(-1);
+			stream_type::setstate(stream_type::rdstate() | std::ios::badbit);
+			return;
+		}
+	}
+
+	virtual void disconnect()
+	{
+		if(m_buf.get_sock_fd() >= 0)
+		{
+			::close(m_buf.get_sock_fd());
+			m_buf.set_sock_fd(-1);
+		}
+
+		stream_type::clear();
+	}
+
+	// the I/O buffer class
+	bufT m_buf;
+};
+
+typedef basic_sockstream<char> sockstream;
+typedef basic_sockstream<wchar_t> wsockstream;
+
+#ifdef USE_SSL
+// SSL initialization routine, can be called multiple
+// times with no ill-effect (init is only done once)
+void __init_ssl();
+
+/*
+ * basic_iostream for a socket using SSL.
+ *
+ */
+template<typename charT, typename traits = std::char_traits<charT>>
+class basic_sslsockstream : public basic_sockstream<charT, basic_sslsockbuf<charT>, traits>
+{
+public:
+
+	typedef basic_sockstream<charT, basic_sslsockbuf<charT>, traits> stream_type;
+
+// construction
+public:
+
+	basic_sslsockstream(const char *node, const char *service, int bufsz = 8192)
+		: stream_type(node, service, bufsz) { __init_ssl(); stream_type::open(node, service); }
+	basic_sslsockstream(const sockaddr *p_addr, socklen_t addrlen,int bufsz = 8192)
+		: stream_type(p_addr, addrlen, bufsz) { __init_ssl(); stream_type::open(p_addr, addrlen); }
+	basic_sslsockstream(const sockaddr& addr, socklen_t addrlen, int bufsz = 8192)
+		: stream_type(addr, addrlen, bufsz) { __init_ssl(); stream_type::open(&addr, addrlen); }
+	basic_sslsockstream(int sock_fd = -1,int bufsz = 8192)
+		: stream_type(sock_fd, bufsz) { __init_ssl(); if(sock_fd >= 0) ssl_connect(); }
+	basic_sslsockstream(basic_sslsockstream&& that) : stream_type(std::move(that)) {}
+	~basic_sslsockstream() { stream_type::close(); }
+
+// operations
+public:
+
+// implementation
+protected:
+
+	void connect(const sockaddr *p_addr, socklen_t addrlen)
+	{
+		// connect at socket level
+		stream_type::connect(p_addr, addrlen);
+
+		// do SSL handshake
+		if(*this) ssl_connect();
+	}
+
+	void disconnect()
+	{
+		stream_type::disconnect();
+		stream_type::m_buf.free_ssl();
+	}
+
+	void ssl_connect()
+	{
+		stream_type::m_buf.alloc_ssl();
+		int ssl_status = SSL_connect(stream_type::m_buf.get_ssl());
+		if(1 != ssl_status)
+		{
+			stream_type::setstate(stream_type::rdstate() | std::ios::badbit);
+			if(std::basic_ios<charT>::exceptions() & std::ios::badbit)
+			{
+				const char *reason = ERR_reason_error_string(ERR_get_error());
+				if(nullptr == reason)
+					reason = "Error during SSL_connect";
+				throw std::ios_base::failure(reason);
+			}
+		}
+	}
+};
+
+typedef basic_sslsockstream<char> sslsockstream;
+typedef basic_sslsockstream<wchar_t> wsslsockstream;
+#endif /* USE_SSL */
+
+}	/* namespace NetStream */
+
+#endif	/* __SOCKET_STREAM_HEADER__ */

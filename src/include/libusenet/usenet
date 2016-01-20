@@ -1,0 +1,261 @@
+#ifndef __USENET_HEADER_INCLUDED__
+#define __USENET_HEADER_INCLUDED__
+
+#include <libusenet/sockstream>
+
+#include "config.h"
+
+namespace usenet {
+
+/*
+ * Address for a remote server
+ */
+class ServerProfile
+{
+public:
+
+	ServerProfile(const ServerProfile& that);
+	ServerProfile(ServerProfile&& that);
+	ServerProfile(const char *server_name, const char *port = "119")
+		throw(std::runtime_error);
+	ServerProfile(const char *server_name, int num_connections, const char *port = "119")
+		throw(std::runtime_error);
+	ServerProfile(const char *server_name, const char *username, const char *passwd, const char *port = "119")
+		throw(std::runtime_error);
+	ServerProfile(const char *server_name, const char *username, const char *passwd, int num_connections, const char *port="119")
+		throw(std::runtime_error);
+	~ServerProfile() {}
+
+public:
+
+	// remote host info
+	const sockaddr& get_addr() const { return m_addr; }
+	size_t get_addrlen() const { return m_addr_len; }
+	const std::string& get_canon_name() const { return m_canon_name; }
+
+	// connection and auth info
+	int get_number_of_connections() const { return m_num_conns; }
+	void set_number_of_connections(int num_connections) { m_num_conns = num_connections; }
+
+	const std::string& get_username() const { return m_username; }
+	void set_username(const std::string& username) { m_username = username; }
+	void set_username(std::string&& username) { m_username = username; }
+	void set_username(const char *username) { m_username.assign(username); }
+
+	const std::string& get_password() const { return m_password; }
+	void set_password(const std::string& password) { m_password = password; }
+	void set_password(std::string&& password) { m_password = password; }
+	void set_password(const char *password) { m_password.assign(password); }
+
+	ServerProfile& operator =(const ServerProfile&) = default;
+	ServerProfile& operator =(ServerProfile&&) = default;
+
+private:
+
+	// network info
+	sockaddr m_addr;
+	size_t m_addr_len;
+	std::string m_canon_name;
+
+	// NNTP info
+	int m_num_conns;
+	std::string m_username;
+	std::string m_password;
+};
+
+enum ResponseStatus { S_NONE = 0, INFO = 1, CMD_OK, CMD_OK_SOFAR, CMD_FAIL, ERROR, };
+enum ResponseFunction { F_NONE = -1, CONNECTION, GROUP_SELECTION, ARTICLE_SELECTION, DISTRO, POSTING, NON_STD = 8, DEBUGGING, };
+
+/*
+ *
+ */
+class Response
+{
+// construction
+public:
+
+	Response();
+	Response(const Response&) = default;
+	~Response() {}
+
+// atributes
+public:
+
+	const char *get_buffer() const { return &m_buf[0]; }
+	int get_length() const { return m_len; }
+
+	std::string get_line() const { return std::string(m_buf, m_len); }
+
+	ResponseStatus get_status() const;
+	ResponseFunction get_function() const;
+	int get_number() const;
+	std::string get_status_msg() const;
+
+// operations
+public:
+
+	Response& clear() { m_len = 0; return *this; }
+
+	Response& operator =(const Response&) = default;
+	operator bool() const;
+
+private:
+
+	friend std::basic_istream<char>& operator >>(std::basic_istream<char>& is, Response& response);
+
+	char m_buf[1024];
+	int m_len;
+};
+
+inline std::basic_istream<char>& operator >>(std::basic_istream<char>& is, usenet::Response& response)
+{
+	is.getline(&response.m_buf[0], 1024);
+	response.m_len = is.gcount();
+	if(response.m_len > 0)
+	{
+		if(response.m_buf[response.m_len - 1] == '\r')
+		{
+			response.m_buf[--response.m_len] = 0;
+			--response.m_len;
+		}
+	}
+	return is;
+}
+
+/*
+ * NNTP socket stream class.
+ *
+ */
+//class stream : public NetStream::basic_sockstream<char>
+class stream : public NetStream::sockstream
+{
+// construction
+public:
+
+	stream(int bufsz = 2 * 8192) : NetStream::basic_sockstream<char>(-1, bufsz) {}
+	stream(const ServerProfile& server, int bufsz = 2 * 8192);
+	~stream() {}
+
+// operations
+public:
+
+	void open(const ServerProfile& server);
+
+	operator bool() { return((m_buf.get_sock_fd() >= 0) && good()); }
+
+// implementation
+protected:
+
+};
+
+#ifdef USE_SSL
+/*
+ * NNTP SSL socket stream class.
+ *
+ */
+//class sslstream : public NetStream::basic_sslsockstream<char>
+class sslstream : public NetStream::sslsockstream
+{
+// construction
+public:
+
+	sslstream(const ServerProfile& server, int bufsz = 2 * 8192);
+	~sslstream() {}
+
+// operations
+public:
+
+	void open(const ServerProfile& server);
+
+	operator bool() { return((m_buf.get_sock_fd() >= 0) && good()); }
+
+// implementation
+protected:
+
+};
+#endif /* USE_SSL */
+
+/*
+ * same as std::getline(std::istream&, std::string&) with the addition
+ * of removing the '\r' char at the end of the line of input.
+ *
+ */
+template<typename _CharT, typename _Traits, typename _Alloc>
+inline std::basic_istream<_CharT, _Traits>& getline(
+	std::basic_istream<_CharT, _Traits>& __is,
+	std::basic_string<_CharT, _Traits, _Alloc>& __str)
+{
+	std::basic_istream<_CharT, _Traits>& result = getline(__is, __str, __is.widen('\n'));
+	if(!__str.empty() && (__str.back() == '\r'))
+		__str.erase(__str.size() - 1);
+	return result;
+}
+
+template<typename charT, typename traits>
+inline std::basic_ostream<charT,traits>& endl(std::basic_ostream<charT,traits>& os)
+{
+	os.write("\r\n", 2);
+	return os;
+}
+
+template<typename charT, typename traits>
+inline std::basic_ostream<charT,traits>& endf(std::basic_ostream<charT,traits>& os)
+{
+	os.write("\r\n", 2).flush();
+	return os;
+}
+
+struct _message_id { const std::string& __id; };
+inline _message_id id(const std::string& id) { return { id }; }
+
+template<typename charT, typename traits>
+inline std::basic_ostream<charT,traits>& operator <<(std::basic_ostream<charT,traits>& os, _message_id&& id)
+{
+	os << '<' << id.__id << '>';
+	return os;
+}
+
+struct _poster_id { const std::string& __email; const std::string& __nick; };
+inline _poster_id poster_id(const std::string& email, const std::string& nick = std::string())
+{ return { email, nick }; }
+
+template<typename charT, typename traits>
+inline std::basic_ostream<charT,traits>& operator <<(std::basic_ostream<charT,traits>& os, _poster_id&& id)
+{
+	if(id.__nick.empty())
+		os << id.__email;
+	else
+		os << id.__nick << " <" << id.__email << '>';
+	return os;
+}
+
+// NNTP commands
+extern const std::string auth_user;
+extern const std::string auth_pass;
+extern const std::string head;
+extern const std::string body;
+extern const std::string article;
+extern const std::string group;
+extern const std::string post;
+extern const std::string quit;
+
+// NNTP headers
+extern const std::string hdr_msgid;
+extern const std::string hdr_subject;
+extern const std::string hdr_body;
+extern const std::string hdr_from;
+extern const std::string hdr_org;
+extern const std::string hdr_reply;
+extern const std::string hdr_followup;
+
+}	/* namespace usenet */
+
+template<typename _CharT, typename _Traits>
+inline std::basic_ostream<_CharT, _Traits>& operator <<(std::basic_ostream<_CharT, _Traits>& is, const usenet::Response& response)
+{
+	if(response.get_length() > 0)
+		is.write(response.get_buffer(), response.get_length());
+	return is;
+}
+
+#endif	/* __USENET_HEADER_INCLUDED__ */
