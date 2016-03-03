@@ -562,10 +562,15 @@ throw(std::system_error)
 	Connection::connect(server);
 
 	// do the SSL handshake
-	register int ssl_status = SSL_connect(m_sslptr.get());
-	if(1 != ssl_status)
+	int ssl_status;
+	while(1 != (ssl_status = SSL_connect(m_sslptr.get())))
 	{
+		// check for the causing error code, just retry SSL_conenct on WANT_READ/WRITE
 		int errnum = SSL_get_error(m_sslptr.get(), ssl_status);
+		if((SSL_ERROR_WANT_READ == errnum) || (SSL_ERROR_WANT_WRITE == errnum))
+		   continue;
+
+		// else fatal error
 		const char *reason = ERR_reason_error_string(ERR_get_error());
 		if(nullptr == reason)
 			reason = __get_ssl_err_str(errnum, "SslConnection::connect error during SSL_connect");
