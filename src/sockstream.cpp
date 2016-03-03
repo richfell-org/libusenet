@@ -1,19 +1,38 @@
-/* Copyright 2014 Richard Fellinger */
+/*
+	libusenet NNTP/NZB tools
+
+    Copyright (C) 2016  Richard J. Fellinger, Jr
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; version 2 of the License.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, see <http://www.gnu.org/licenses/> or write
+	to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+	Boston, MA 02110-1301 USA.
+*/
 #include <memory>
 #include <cerrno>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netdb.h>
-#include <openssl/ssl.h>
-#include <openssl/err.h>
-#include <openssl/crypto.h>
 
-#ifdef HAVE_CONFIG_H
-#	include "config.h"
-#endif
+#include <libusenet/sockstream>
 
-#if defined(USE_SSL) && defined(SSL_THREADS)
+#ifdef LIBUSENET_USE_SSL
+#   include <openssl/ssl.h>
+#   include <openssl/err.h>
+#   include <openssl/crypto.h>
+#endif  /* LIBUSENET_USE_SSL */
+
+#if defined(LIBUSENET_USE_SSL) && defined(LIBUSENET_SSL_THREADS)
 #	include <mutex>
 #endif
 
@@ -73,9 +92,9 @@ bool connect_socket(int sockfd, const sockaddr *p_addr, socklen_t addrlen)
 	return result;
 }
 
-#if defined(USE_SSL)
+#if defined(LIBUSENET_USE_SSL)
 
-#if defined(SSL_THREADS)
+#if defined(LIBUSENET_SSL_THREADS)
 // mutex used to lock SSL initialization calls
 static std::mutex sSslInitMutex;
 
@@ -95,7 +114,7 @@ static void _ssl_locking_function(int mode, int n, const char *file, int line)
 	else
 		sSslLocks[n].unlock();
 }
-#endif	/* SSL_THREADS */
+#endif	/* LIBUSENET_SSL_THREADS */
 
 /*
  * The initialization of the parts of SSL implementation
@@ -105,19 +124,19 @@ void __init_ssl()
 	static bool sIsSslInit = false;
 
 	// do initialization if needed
-#if defined(SSL_THREADS)
+#if defined(LIBUSENET_SSL_THREADS)
 	//std::unique_lock<std::mutex> initLock(sSslInitMutex);
 	std::lock_guard<std::mutex> initLock(sSslInitMutex);
-#endif /* SSL_THREADS */
+#endif /* LIBUSENET_SSL_THREADS */
 	if(!sIsSslInit)
 	{
-#if defined(SSL_THREADS)
+#if defined(LIBUSENET_SSL_THREADS)
 		// allocate mutex instances according to the value of CRYPTO_num_locks()
 		// add set our locking function, which is used by crypto lib to
 		// call for the locking and unlocking by mutex index
 		sSslLocks.reset(new std::recursive_mutex[CRYPTO_num_locks()]);
 		CRYPTO_set_locking_callback(_ssl_locking_function);
-#endif /* SSL_THREADS */
+#endif /* LIBUSENET_SSL_THREADS */
 		// init libraries for SSL
 		CRYPTO_malloc_init();
 		SSL_library_init();
@@ -128,6 +147,6 @@ void __init_ssl()
 		sIsSslInit = true;
 	}
 }
-#endif /* USE_SSL */
+#endif /* LIBUSENET_USE_SSL */
 
 }	/* namespace NetStream */

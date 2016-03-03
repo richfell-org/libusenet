@@ -1,3 +1,22 @@
+/*
+	libusenet NNTP/NZB tools
+
+    Copyright (C) 2016  Richard J. Fellinger, Jr
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; version 2 of the License.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, see <http://www.gnu.org/licenses/> or write
+	to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+	Boston, MA 02110-1301 USA.
+*/
 #ifndef __NNTP_CLIENT_HEADER__
 #define __NNTP_CLIENT_HEADER__
 
@@ -7,7 +26,12 @@
 #include <memory>
 #include <string>
 #include <sys/socket.h>
-#include <openssl/ssl.h>
+
+#include "options.h"
+
+#ifdef LIBUSENET_USE_SSL
+#   include <openssl/ssl.h>
+#endif
 
 namespace NntpClient {
 
@@ -174,6 +198,8 @@ protected:
 	std::unique_ptr<char[]> m_bufptr;
 };
 
+#ifdef LIBUSENET_USE_SSL
+
 /*
  *
  */
@@ -210,6 +236,8 @@ protected:
 	std::unique_ptr<SSL_CTX, void(*)(SSL_CTX*)> m_ctxptr;
 	std::unique_ptr<SSL, void(*)(SSL*)> m_sslptr;
 };
+
+#endif  /* LIBUSENET_USE_SSL */
 
 }	// NntpClient
 

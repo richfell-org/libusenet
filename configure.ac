@@ -2,6 +2,7 @@ AC_INIT([libusenet], [1.0])
 AM_INIT_AUTOMAKE([subdir-objects])
 AC_CONFIG_SRCDIR([configure.ac])
 AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_HEADERS([src/include/libusenet/options.h])
 AC_PROG_CXX
 AC_CONFIG_MACRO_DIR([m4])
 AX_CXX_COMPILE_STDCXX_11
@@ -15,7 +16,7 @@ AC_ARG_ENABLE([ssl],
 
 	AS_IF([test "x$enable_ssl" == "xyes"], [
 	  PKG_CHECK_MODULES(SSL, [libssl >= 1])
-	  AC_DEFINE(USE_SSL, [], [Include code for SSL connections]) AC_SUBST(LIBSSL, [", libssl >= 1"])] AC_SUBST(CF_SSL, [-DUSE_SSL])
+	  AC_DEFINE(LIBUSENET_USE_SSL, [], [Include code for SSL connections]) AC_SUBST(LIBSSL, [", libssl >= 1"])] AC_SUBST(CF_SSL, [-DUSE_SSL])
 )
 
 PTHREAD_LIBS=
@@ -24,7 +25,7 @@ AC_ARG_ENABLE([ssl-threads],
     AS_HELP_STRING([--enable-ssl-threads], [Enable threads support for SSL connections]))
 
 	AS_IF([test "x$enable_ssl_threads" == "xyes"], [
-		AX_PTHREAD([AC_DEFINE(SSL_THREADS, [], [Include code for SSL connection in threaded environment])] AC_SUBST(CF_SSL_THREADS, [-DSSL_THREADS]),
+		AX_PTHREAD([AC_DEFINE(LIBUSENET_SSL_THREADS, [], [Include code for SSL connection in threaded environment])] AC_SUBST(CF_SSL_THREADS, [-DSSL_THREADS]),
 			[AC_MSG_FAILURE([--enable-ssl-threads given but libpthread not found])])
 	]
 )

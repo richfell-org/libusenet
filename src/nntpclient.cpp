@@ -1,4 +1,22 @@
+/*
+	libusenet NNTP/NZB tools
 
+    Copyright (C) 2016  Richard J. Fellinger, Jr
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; version 2 of the License.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, see <http://www.gnu.org/licenses/> or write
+	to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+	Boston, MA 02110-1301 USA.
+*/
 #include <libusenet/nntpclient.h>
 
 #include <cstdarg>
@@ -13,16 +31,20 @@
 #include <sys/socket.h>
 #include <netdb.h>
 
-#include <openssl/ssl.h>
-#include <openssl/err.h>
-#include <openssl/crypto.h>
+#ifdef LIBUSENET_USE_SSL
+#   include <openssl/ssl.h>
+#   include <openssl/err.h>
+#   include <openssl/crypto.h>
+#endif
 
 #include <iostream>
 
+#ifdef LIBUSENET_USE_SSL
 namespace NetStream {
 // SSL initialization function
 void __init_ssl();
 }
+#endif  /* LIBUSENET_USE_SSL */
 
 namespace NntpClient {
 
@@ -465,6 +487,8 @@ throw(std::system_error)
 	return result;
 }
 
+#ifdef LIBUSENET_USE_SSL
+
 SslConnection::SslConnection()
 throw(std::runtime_error)
 :	Connection(), m_ctxptr((SSL_CTX*)0, SSL_CTX_free), m_sslptr((SSL*)0, SSL_free)
@@ -617,5 +641,7 @@ throw(std::system_error)
 
 	return ssl_status;
 }
+
+#endif  /* LIBUSENET_USE_SSL */
 
 }	// namespace NntpClient
