@@ -23,54 +23,20 @@
 namespace NZB {
 
 BinPartsOracle::BinPartsOracle()
-:	m_regex_repair_ptr(0, regfree)
+:   m_regex_repair(".*vol[[:digit:]]+\\+([[:digit:]]+)\\.par2.*", std::regex::ECMAScript|std::regex::icase)
 {
-	m_regex_files_ptrs.clear();
+	const std::regex::flag_type re_flags = std::regex::ECMAScript|std::regex::icase|std::regex::nosubs;
 
-	regex_t *p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.par2[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_REPAIR_INDEX, PosixRegexPtr(p_regex, regfree)));
-
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.rar[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_RAR, PosixRegexPtr(p_regex, regfree)));
-
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.[rs][[:digit:]]+[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_RAR, PosixRegexPtr(p_regex, regfree)));
-
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.zip[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_ZIP, PosixRegexPtr(p_regex, regfree)));
-
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.[[:digit:]]+[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_CONTENT, PosixRegexPtr(p_regex, regfree)));
-
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.nfo[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_NFO, PosixRegexPtr(p_regex, regfree)));
-
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.nzb[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_NZB, PosixRegexPtr(p_regex, regfree)));
-
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.sfv[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_SFV, PosixRegexPtr(p_regex, regfree)));
-
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.mkv[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_MKV, PosixRegexPtr(p_regex, regfree)));
-
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*\\.mp3[ \"].*", REG_EXTENDED|REG_ICASE|REG_NOSUB);
-	m_regex_files_ptrs.push_back(RegexFileTuple(BINPARTS_MP3, PosixRegexPtr(p_regex, regfree)));
-
-	// BINPARTS_REPAIR_BLOCKS
-	p_regex = new regex_t;
-	regcomp(p_regex, ".*vol[[:digit:]]+\\+([[:digit:]]+)\\.par2.*", REG_EXTENDED|REG_ICASE);
-	m_regex_repair_ptr.reset(p_regex);
+	m_regex_types.emplace_back(BINPARTS_REPAIR_INDEX, std::regex(".*\\.par2[ \"].*", re_flags));
+	m_regex_types.emplace_back(BINPARTS_RAR, std::regex(".*\\.rar[ \"].*", re_flags));
+	m_regex_types.emplace_back(BINPARTS_RAR, std::regex(".*\\.[rs][[:digit:]]+[ \"].*", re_flags));
+	m_regex_types.emplace_back(BINPARTS_ZIP, std::regex(".*\\.zip[ \"].*", re_flags));
+	m_regex_types.emplace_back(BINPARTS_CONTENT, std::regex(".*\\.[[:digit:]]+[ \"].*", re_flags));
+	m_regex_types.emplace_back(BINPARTS_NFO, std::regex(".*\\.nfo[ \"].*", re_flags));
+	m_regex_types.emplace_back(BINPARTS_NZB, std::regex(".*\\.nzb[ \"].*", re_flags));
+	m_regex_types.emplace_back(BINPARTS_SFV, std::regex(".*\\.sfv[ \"].*", re_flags));
+	m_regex_types.emplace_back(BINPARTS_MKV, std::regex(".*\\.mkv[ \"].*", re_flags));
+	m_regex_types.emplace_back(BINPARTS_MP3, std::regex(".*\\.mp3[ \"].*", re_flags));
 }
 
 BinPartsOracle::~BinPartsOracle()
@@ -80,20 +46,19 @@ BinPartsOracle::~BinPartsOracle()
 BinPartsFileType BinPartsOracle::get_file_type(const char *str)
 {
 	BinPartsFileType result = BINPARTS_NONE;
-	regmatch_t pmatch[2];
 
-	if(0 == regexec(m_regex_repair_ptr.get(), str, 2, pmatch, 0))
+	// check for PAR2 repair blocks file
+	if(std::regex_match(str, m_regex_repair))
 		result = BINPARTS_REPAIR_BLOCKS;
 	else
-	{	
-		for(auto& tuple : m_regex_files_ptrs)
+	{
+		for(auto& tuple : m_regex_types)
 		{
-			PosixRegexPtr& regex_ptr = std::get<1>(tuple);
-			if(0 == regexec(regex_ptr.get(), str, 2, pmatch, 0))
+			if(std::regex_match(str, std::get<1>(tuple)))
 			{
 				result = std::get<0>(tuple);
 				break;
-			}
+			}	
 		}
 	}
 
@@ -103,19 +68,18 @@ BinPartsFileType BinPartsOracle::get_file_type(const char *str)
 int BinPartsOracle::get_repair_block_count(const char *str)
 {
 	int result = 0;
-	regmatch_t pmatch[2];
 
-	if(0 == regexec(m_regex_repair_ptr.get(), str, 2, pmatch, 0))
+	std::cmatch cm;
+	if(std::regex_match(str, cm, m_regex_repair))
 	{
-		/* pmatch[0] is for the whole string */
-		/* fprintf(stderr, "binPartsRepairBlockCount: match at index %d\n", pmatch[1].rm_so); */
-
-		int iDigit;
-		for(iDigit = pmatch[1].rm_so; iDigit < pmatch[1].rm_eo; ++iDigit)
+		if(cm.size() > 1)
 		{
-			if(result > 0) result *= 10;
-
-			result += str[iDigit] - '0';
+			std::string blocks_text = cm[1];
+			for(auto& c : blocks_text)
+			{
+				result *= 10;
+				result += c - '0';
+			}
 		}
 	}
 

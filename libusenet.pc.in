@@ -7,5 +7,5 @@ Name: libusenet
 Description: Usenet NZB file parsing and article fetching library
 Version: @VERSION@
 Requires: expat >= 2.1.0 @LIBSSL@
-Cflags: -std=c++11 -I${includedir} @CF_SSL@ @CF_SSL_THREADS@
+Cflags: -I${includedir} @CF_SSL@ @CF_SSL_THREADS@
 Libs: @PTHREAD_CFLAGS@ -L${libdir} -lusenet

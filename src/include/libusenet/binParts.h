@@ -23,7 +23,7 @@
 #include <memory>
 #include <tuple>
 #include <vector>
-#include <regex.h>
+#include <regex>
 
 /* enum for the different binary file parts */
 typedef enum {
@@ -43,8 +43,7 @@ typedef enum {
 
 namespace NZB {
 
-using PosixRegexPtr = std::unique_ptr<regex_t, void(*)(regex_t*)>;
-using RegexFileTuple = std::tuple<BinPartsFileType, PosixRegexPtr>;
+using TypeRegexTuple = std::tuple<BinPartsFileType, std::regex>;
 
 class BinPartsOracle
 {
@@ -66,8 +65,8 @@ public:
 // implementation
 private:
 
-	std::vector<RegexFileTuple> m_regex_files_ptrs;
-	PosixRegexPtr m_regex_repair_ptr;
+	std::vector<TypeRegexTuple> m_regex_types;
+	std::regex m_regex_repair;
 };
 
 }	/* namespace NZB */
