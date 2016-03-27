@@ -20,6 +20,7 @@
 #ifndef __NZB_HEADER__
 #define __NZB_HEADER__
 
+#include <memory>
 #include <string>
 #include <ctime>
 
@@ -36,7 +37,7 @@ class FileCollection
 // construction
 public:
 
-	FileCollection() : mpMem(0), mFileCount(0) {}
+	FileCollection() : mpMem(nullptr), mFileCount(0) {}
 	FileCollection(int fileCount, int segmentCount, int groupCount);
 	FileCollection(FileCollection&& rvCollection);
 	FileCollection(const FileCollection&) = delete;
@@ -47,8 +48,8 @@ public:
 
 	int getFileCount() const { return mFileCount; }
 
-	File *getFiles() { return (File*)mpMem; }
-	const File * getFile() const { return (File*)mpMem; }
+	File *getFiles() { return (File*)mpMem.get(); }
+	const File * getFiles() const { return (File*)mpMem.get(); }
 
 // operations
 public:
@@ -69,7 +70,7 @@ public:
 
 protected:
 
-	void *mpMem;
+	std::unique_ptr<unsigned char[]> mpMem;
 	int mFileCount;
 };
 

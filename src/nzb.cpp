@@ -24,15 +24,15 @@
 namespace NZB {
 
 FileCollection::FileCollection(int fileCount, int segmentCount, int groupCount)
-:	mpMem(0), mFileCount(0)
+:	mpMem(nullptr), mFileCount(0)
 {
 	alloc(fileCount, segmentCount, groupCount);
 }
 
 FileCollection::FileCollection(FileCollection&& rvCollection)
-:	mpMem(rvCollection.mpMem), mFileCount(rvCollection.mFileCount)
+:	mpMem(std::move(rvCollection.mpMem)),
+	mFileCount(rvCollection.mFileCount)
 {
-	rvCollection.mpMem = nullptr;
 	rvCollection.mFileCount = 0;
 }
 
@@ -40,7 +40,8 @@ FileCollection& FileCollection::operator =(FileCollection&& rvCollection)
 {
 	// implement a swap and the transient instance can free the
 	// existing (if any) allocated memory from this instance
-	std::swap(mpMem, rvCollection.mpMem);
+	mpMem = std::move(rvCollection.mpMem);
+	//std::swap(mpMem, rvCollection.mpMem);
 	std::swap(mFileCount, rvCollection.mFileCount);
 
 	return *this;
@@ -55,61 +56,60 @@ File& FileCollection::operator [](int iFile)
 {
 	if((0 > iFile) || (mFileCount <= iFile))
 		throw std::range_error("FileCollection::operator []: request file index is out of range");
-	return ((File*)mpMem)[iFile];
+	return reinterpret_cast<File*>(mpMem.get())[iFile];
 }
 
 const File& FileCollection::operator [](int iFile) const
 {
 	if((0 > iFile) || (mFileCount <= iFile))
 		throw std::range_error("FileCollection::operator []: request file index is out of range");
-	return ((File*)mpMem)[iFile];
+	return reinterpret_cast<const File*>(mpMem.get())[iFile];
 }
 
 File* FileCollection::begin()
 {
-	if((0 == mFileCount) && (nullptr == mpMem))
+	if((0 == mFileCount) && !mpMem)
 		return nullptr;
-	return (File*)mpMem;
+	return reinterpret_cast<File*>(mpMem.get());
 }
 
 File* FileCollection::end()
 {
-	if(nullptr == mpMem)
+	if(!mpMem)
 		return nullptr;
-	return &((File*)mpMem)[mFileCount];
+	return &(reinterpret_cast<File*>(mpMem.get()))[mFileCount];
 }
 
 const File* FileCollection::begin() const
 {
-	if((0 == mFileCount) && (nullptr == mpMem))
+	if((0 == mFileCount) && !mpMem)
 		return nullptr;
-	return (const File*)mpMem;
+	return reinterpret_cast<const File*>(mpMem.get());
 }
 
 const File* FileCollection::end() const
 {
-	if(nullptr == mpMem)
+	if(!mpMem)
 		return nullptr;
-	return &((const File*)mpMem)[mFileCount];
+	return &(reinterpret_cast<const File*>(mpMem.get()))[mFileCount];
 }
 
 void FileCollection::alloc(int fileCount, int segmentCount, int groupCount)
 {
 	int memlen = (fileCount * sizeof(File)) + (segmentCount * sizeof(Segment)) + (groupCount * sizeof(Group));
-	mpMem = new unsigned char[memlen];
+	mpMem.reset(new unsigned char[memlen]);
 	mFileCount = fileCount;
 }
 
 void FileCollection::free()
 {
-	if(0 != mpMem)
+	if(mpMem)
 	{
-		File *pFile = (File*)mpMem;
+		File *pFile = reinterpret_cast<File*>(mpMem.get());
 		for(int i = 0; i < mFileCount; ++i)
 			pFile[i].~File();
 
-		delete[] (unsigned char*)mpMem;
-		mpMem = 0;
+		mpMem.reset(nullptr);
 		mFileCount = 0;
 	}
 }
