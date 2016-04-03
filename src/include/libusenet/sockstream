@@ -124,7 +124,7 @@ protected:
 		if(c_size == buf_type::traits_type::eof())
 			return c_size;
 
-		// return trhe char
+		// return the char
 		charT* ptr = m_ibuf.get();
 		buf_type::setg(ptr, ptr, ptr + c_size);
 		return buf_type::traits_type::to_int_type(*buf_type::gptr());
@@ -238,7 +238,7 @@ public:
 
 	basic_sslsockbuf<charT, traits>& operator =(basic_sslsockbuf<charT, traits>&& that)
 	{
-		buf_type::operator =(that);
+		buf_type::operator =(std::move(that));
 		m_ctxptr = std::move(that.m_ctxptr);
 		m_sslptr = std::move(that.m_sslptr);
 	}
@@ -298,7 +298,8 @@ public:
 public:
 
 	basic_sockstream(int bufsz = 8192) : stream_type(&m_buf), m_buf(-1, bufsz) {}
-	basic_sockstream(const char *node, const char *service, int bufsz = 8192) : stream_type(&m_buf), m_buf(-1, bufsz) { open(node, service); }
+	basic_sockstream(const char *node, const char *service, int bufsz = 8192)
+		: stream_type(&m_buf), m_buf(-1, bufsz) { open(node, service); }
 	basic_sockstream(const sockaddr *p_addr, socklen_t addrlen, int bufsz = 8192)
 		: stream_type(&m_buf), m_buf(-1, bufsz) { open(p_addr, addrlen); }
 	basic_sockstream(const sockaddr& addr, socklen_t addrlen, int bufsz = 8192)
@@ -433,9 +434,16 @@ protected:
 	void ssl_connect()
 	{
 		stream_type::m_buf.alloc_ssl();
-		int ssl_status = SSL_connect(stream_type::m_buf.get_ssl());
-		if(1 != ssl_status)
+		
+		int ssl_status;
+		while(1 != (ssl_status = SSL_connect(stream_type::m_buf.get_ssl())))
 		{
+			// check for the causing error code, just retry SSL_conenct on WANT_READ/WRITE
+			int errnum = SSL_get_error(m_sslptr.get(), ssl_status);
+			if((SSL_ERROR_WANT_READ == errnum) || (SSL_ERROR_WANT_WRITE == errnum))
+				continue;
+
+			// else unrecoverable error, throw if exceptions flag is set
 			stream_type::setstate(stream_type::rdstate() | std::ios::badbit);
 			if(std::basic_ios<charT>::exceptions() & std::ios::badbit)
 			{
@@ -444,6 +452,9 @@ protected:
 					reason = "Error during SSL_connect";
 				throw std::ios_base::failure(reason);
 			}
+
+			// exceptions flag not set, break connect attempt
+			break;
 		}
 	}
 };
