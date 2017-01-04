@@ -1,0 +1,197 @@
+\hypertarget{class_nntp_client_1_1_server_addr}{}\section{Nntp\+Client\+:\+:Server\+Addr Class Reference}
+\label{class_nntp_client_1_1_server_addr}\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+
+
+{\ttfamily \#include $<$nntpclient.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_nntp_client_1_1_server_addr_a19b0e0ac59d127ccdadeed1367295c3e}{Server\+Addr} (const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&that)
+\item 
+\hyperlink{class_nntp_client_1_1_server_addr_aca3ce7af4fab5298a40a0dbe0822918c}{Server\+Addr} (\hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&\&that)
+\item 
+\hyperlink{class_nntp_client_1_1_server_addr_a28e3e20d782edd97a25848bd5875d51a}{Server\+Addr} (const char $\ast$server\+\_\+name, const char $\ast$port=\char`\"{}119\char`\"{})  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{class_nntp_client_1_1_server_addr_a4eb21b6350512f1a6edeb3571feafc7a}{Server\+Addr} (const char $\ast$server\+\_\+name, int num\+\_\+connections, const char $\ast$port=\char`\"{}119\char`\"{})  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{class_nntp_client_1_1_server_addr_a1aadb75cf311cb757b27e43b4cae4e7f}{Server\+Addr} (const char $\ast$server\+\_\+name, const char $\ast$username, const char $\ast$passwd, const char $\ast$port=\char`\"{}119\char`\"{})  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{class_nntp_client_1_1_server_addr_a9a237edb548ad3e03d105346edb261a5}{Server\+Addr} (const char $\ast$server\+\_\+name, int num\+\_\+connections, const char $\ast$username, const char $\ast$passwd, const char $\ast$port=\char`\"{}119\char`\"{})  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{class_nntp_client_1_1_server_addr_ac5497a8edd97dce1d5c6a558e061d533}{$\sim$\+Server\+Addr} ()
+\item 
+const sockaddr \& \hyperlink{class_nntp_client_1_1_server_addr_a8b7878a4680012c1cd9ce8363c98ade7}{get\+\_\+addr} () const
+\item 
+size\+\_\+t \hyperlink{class_nntp_client_1_1_server_addr_ac0737342c3b56311c50e1bf420d82904}{get\+\_\+addrlen} () const
+\item 
+const std\+::string \& \hyperlink{class_nntp_client_1_1_server_addr_a8b75975f3d475115e4a2c08d325871b4}{get\+\_\+canon\+\_\+name} () const
+\item 
+int \hyperlink{class_nntp_client_1_1_server_addr_a1d1cc29ce2f8c2a0e610bd4836c07f84}{get\+\_\+number\+\_\+of\+\_\+connections} () const
+\item 
+void \hyperlink{class_nntp_client_1_1_server_addr_acdf2a374db8aaa62703037cfd7d60e3a}{set\+\_\+number\+\_\+of\+\_\+connections} (int num\+\_\+connections)
+\item 
+const std\+::string \& \hyperlink{class_nntp_client_1_1_server_addr_a17dd214bd1236635549fa371535d9374}{get\+\_\+username} () const
+\item 
+void \hyperlink{class_nntp_client_1_1_server_addr_af0306b61dc76b461403da778665f611c}{set\+\_\+username} (const std\+::string \&username)
+\item 
+void \hyperlink{class_nntp_client_1_1_server_addr_a8e832fe4605e3bf540169e8725837842}{set\+\_\+username} (std\+::string \&\&username)
+\item 
+void \hyperlink{class_nntp_client_1_1_server_addr_a5ba86685fe0cced320a0c785d59d72b6}{set\+\_\+username} (const char $\ast$username)
+\item 
+const std\+::string \& \hyperlink{class_nntp_client_1_1_server_addr_a675d9c66531b33bdb92e639befc30440}{get\+\_\+password} () const
+\item 
+void \hyperlink{class_nntp_client_1_1_server_addr_a95a3912a9c287c3dbb06ca4476dac993}{set\+\_\+password} (const std\+::string \&password)
+\item 
+void \hyperlink{class_nntp_client_1_1_server_addr_a8abc70e426256440b6188d89b7b65db7}{set\+\_\+password} (std\+::string \&\&password)
+\item 
+void \hyperlink{class_nntp_client_1_1_server_addr_a89d3bec4ac2e5ed0e9acdcf07de34fd6}{set\+\_\+password} (const char $\ast$password)
+\item 
+\hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \& \hyperlink{class_nntp_client_1_1_server_addr_aa6be5e421585f72c84f4ee0daff39319}{operator=} (const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&)=default
+\item 
+\hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \& \hyperlink{class_nntp_client_1_1_server_addr_aaba670b1aa1ae58c2ed75334903c9cb2}{operator=} (\hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&\&)=default
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_nntp_client_1_1_server_addr_a19b0e0ac59d127ccdadeed1367295c3e}{}\label{class_nntp_client_1_1_server_addr_a19b0e0ac59d127ccdadeed1367295c3e} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!Server\+Addr@{Server\+Addr}}
+\index{Server\+Addr@{Server\+Addr}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{Server\+Addr()}{ServerAddr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Server\+Addr\+::\+Server\+Addr (\begin{DoxyParamCaption}\item[{const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&}]{that }\end{DoxyParamCaption})}
+
+\hypertarget{class_nntp_client_1_1_server_addr_aca3ce7af4fab5298a40a0dbe0822918c}{}\label{class_nntp_client_1_1_server_addr_aca3ce7af4fab5298a40a0dbe0822918c} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!Server\+Addr@{Server\+Addr}}
+\index{Server\+Addr@{Server\+Addr}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{Server\+Addr()}{ServerAddr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Server\+Addr\+::\+Server\+Addr (\begin{DoxyParamCaption}\item[{\hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&\&}]{that }\end{DoxyParamCaption})}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a28e3e20d782edd97a25848bd5875d51a}{}\label{class_nntp_client_1_1_server_addr_a28e3e20d782edd97a25848bd5875d51a} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!Server\+Addr@{Server\+Addr}}
+\index{Server\+Addr@{Server\+Addr}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{Server\+Addr()}{ServerAddr()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Server\+Addr\+::\+Server\+Addr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{server\+\_\+name,  }\item[{const char $\ast$}]{port = {\ttfamily \char`\"{}119\char`\"{}} }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_server_addr_a4eb21b6350512f1a6edeb3571feafc7a}{}\label{class_nntp_client_1_1_server_addr_a4eb21b6350512f1a6edeb3571feafc7a} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!Server\+Addr@{Server\+Addr}}
+\index{Server\+Addr@{Server\+Addr}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{Server\+Addr()}{ServerAddr()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Server\+Addr\+::\+Server\+Addr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{server\+\_\+name,  }\item[{int}]{num\+\_\+connections,  }\item[{const char $\ast$}]{port = {\ttfamily \char`\"{}119\char`\"{}} }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_server_addr_a1aadb75cf311cb757b27e43b4cae4e7f}{}\label{class_nntp_client_1_1_server_addr_a1aadb75cf311cb757b27e43b4cae4e7f} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!Server\+Addr@{Server\+Addr}}
+\index{Server\+Addr@{Server\+Addr}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{Server\+Addr()}{ServerAddr()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Server\+Addr\+::\+Server\+Addr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{server\+\_\+name,  }\item[{const char $\ast$}]{username,  }\item[{const char $\ast$}]{passwd,  }\item[{const char $\ast$}]{port = {\ttfamily \char`\"{}119\char`\"{}} }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_server_addr_a9a237edb548ad3e03d105346edb261a5}{}\label{class_nntp_client_1_1_server_addr_a9a237edb548ad3e03d105346edb261a5} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!Server\+Addr@{Server\+Addr}}
+\index{Server\+Addr@{Server\+Addr}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{Server\+Addr()}{ServerAddr()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Server\+Addr\+::\+Server\+Addr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{server\+\_\+name,  }\item[{int}]{num\+\_\+connections,  }\item[{const char $\ast$}]{username,  }\item[{const char $\ast$}]{passwd,  }\item[{const char $\ast$}]{port = {\ttfamily \char`\"{}119\char`\"{}} }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_server_addr_ac5497a8edd97dce1d5c6a558e061d533}{}\label{class_nntp_client_1_1_server_addr_ac5497a8edd97dce1d5c6a558e061d533} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!````~Server\+Addr@{$\sim$\+Server\+Addr}}
+\index{````~Server\+Addr@{$\sim$\+Server\+Addr}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{$\sim$\+Server\+Addr()}{~ServerAddr()}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Server\+Addr\+::$\sim$\+Server\+Addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_nntp_client_1_1_server_addr_a8b7878a4680012c1cd9ce8363c98ade7}{}\label{class_nntp_client_1_1_server_addr_a8b7878a4680012c1cd9ce8363c98ade7} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!get\+\_\+addr@{get\+\_\+addr}}
+\index{get\+\_\+addr@{get\+\_\+addr}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{get\+\_\+addr()}{get\_addr()}}
+{\footnotesize\ttfamily const sockaddr\& Nntp\+Client\+::\+Server\+Addr\+::get\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_ac0737342c3b56311c50e1bf420d82904}{}\label{class_nntp_client_1_1_server_addr_ac0737342c3b56311c50e1bf420d82904} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!get\+\_\+addrlen@{get\+\_\+addrlen}}
+\index{get\+\_\+addrlen@{get\+\_\+addrlen}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{get\+\_\+addrlen()}{get\_addrlen()}}
+{\footnotesize\ttfamily size\+\_\+t Nntp\+Client\+::\+Server\+Addr\+::get\+\_\+addrlen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a8b75975f3d475115e4a2c08d325871b4}{}\label{class_nntp_client_1_1_server_addr_a8b75975f3d475115e4a2c08d325871b4} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!get\+\_\+canon\+\_\+name@{get\+\_\+canon\+\_\+name}}
+\index{get\+\_\+canon\+\_\+name@{get\+\_\+canon\+\_\+name}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{get\+\_\+canon\+\_\+name()}{get\_canon\_name()}}
+{\footnotesize\ttfamily const std\+::string\& Nntp\+Client\+::\+Server\+Addr\+::get\+\_\+canon\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a1d1cc29ce2f8c2a0e610bd4836c07f84}{}\label{class_nntp_client_1_1_server_addr_a1d1cc29ce2f8c2a0e610bd4836c07f84} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!get\+\_\+number\+\_\+of\+\_\+connections@{get\+\_\+number\+\_\+of\+\_\+connections}}
+\index{get\+\_\+number\+\_\+of\+\_\+connections@{get\+\_\+number\+\_\+of\+\_\+connections}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{get\+\_\+number\+\_\+of\+\_\+connections()}{get\_number\_of\_connections()}}
+{\footnotesize\ttfamily int Nntp\+Client\+::\+Server\+Addr\+::get\+\_\+number\+\_\+of\+\_\+connections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a675d9c66531b33bdb92e639befc30440}{}\label{class_nntp_client_1_1_server_addr_a675d9c66531b33bdb92e639befc30440} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!get\+\_\+password@{get\+\_\+password}}
+\index{get\+\_\+password@{get\+\_\+password}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{get\+\_\+password()}{get\_password()}}
+{\footnotesize\ttfamily const std\+::string\& Nntp\+Client\+::\+Server\+Addr\+::get\+\_\+password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a17dd214bd1236635549fa371535d9374}{}\label{class_nntp_client_1_1_server_addr_a17dd214bd1236635549fa371535d9374} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!get\+\_\+username@{get\+\_\+username}}
+\index{get\+\_\+username@{get\+\_\+username}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{get\+\_\+username()}{get\_username()}}
+{\footnotesize\ttfamily const std\+::string\& Nntp\+Client\+::\+Server\+Addr\+::get\+\_\+username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_aa6be5e421585f72c84f4ee0daff39319}{}\label{class_nntp_client_1_1_server_addr_aa6be5e421585f72c84f4ee0daff39319} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!operator=@{operator=}}
+\index{operator=@{operator=}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr}\& Nntp\+Client\+::\+Server\+Addr\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_aaba670b1aa1ae58c2ed75334903c9cb2}{}\label{class_nntp_client_1_1_server_addr_aaba670b1aa1ae58c2ed75334903c9cb2} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!operator=@{operator=}}
+\index{operator=@{operator=}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr}\& Nntp\+Client\+::\+Server\+Addr\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_acdf2a374db8aaa62703037cfd7d60e3a}{}\label{class_nntp_client_1_1_server_addr_acdf2a374db8aaa62703037cfd7d60e3a} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!set\+\_\+number\+\_\+of\+\_\+connections@{set\+\_\+number\+\_\+of\+\_\+connections}}
+\index{set\+\_\+number\+\_\+of\+\_\+connections@{set\+\_\+number\+\_\+of\+\_\+connections}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{set\+\_\+number\+\_\+of\+\_\+connections()}{set\_number\_of\_connections()}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Server\+Addr\+::set\+\_\+number\+\_\+of\+\_\+connections (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+connections }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a95a3912a9c287c3dbb06ca4476dac993}{}\label{class_nntp_client_1_1_server_addr_a95a3912a9c287c3dbb06ca4476dac993} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!set\+\_\+password@{set\+\_\+password}}
+\index{set\+\_\+password@{set\+\_\+password}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{set\+\_\+password()}{set\_password()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Server\+Addr\+::set\+\_\+password (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a8abc70e426256440b6188d89b7b65db7}{}\label{class_nntp_client_1_1_server_addr_a8abc70e426256440b6188d89b7b65db7} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!set\+\_\+password@{set\+\_\+password}}
+\index{set\+\_\+password@{set\+\_\+password}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{set\+\_\+password()}{set\_password()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Server\+Addr\+::set\+\_\+password (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a89d3bec4ac2e5ed0e9acdcf07de34fd6}{}\label{class_nntp_client_1_1_server_addr_a89d3bec4ac2e5ed0e9acdcf07de34fd6} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!set\+\_\+password@{set\+\_\+password}}
+\index{set\+\_\+password@{set\+\_\+password}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{set\+\_\+password()}{set\_password()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Server\+Addr\+::set\+\_\+password (\begin{DoxyParamCaption}\item[{const char $\ast$}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_af0306b61dc76b461403da778665f611c}{}\label{class_nntp_client_1_1_server_addr_af0306b61dc76b461403da778665f611c} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!set\+\_\+username@{set\+\_\+username}}
+\index{set\+\_\+username@{set\+\_\+username}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{set\+\_\+username()}{set\_username()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Server\+Addr\+::set\+\_\+username (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a8e832fe4605e3bf540169e8725837842}{}\label{class_nntp_client_1_1_server_addr_a8e832fe4605e3bf540169e8725837842} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!set\+\_\+username@{set\+\_\+username}}
+\index{set\+\_\+username@{set\+\_\+username}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{set\+\_\+username()}{set\_username()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Server\+Addr\+::set\+\_\+username (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_server_addr_a5ba86685fe0cced320a0c785d59d72b6}{}\label{class_nntp_client_1_1_server_addr_a5ba86685fe0cced320a0c785d59d72b6} 
+\index{Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}!set\+\_\+username@{set\+\_\+username}}
+\index{set\+\_\+username@{set\+\_\+username}!Nntp\+Client\+::\+Server\+Addr@{Nntp\+Client\+::\+Server\+Addr}}
+\subsubsection{\texorpdfstring{set\+\_\+username()}{set\_username()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Server\+Addr\+::set\+\_\+username (\begin{DoxyParamCaption}\item[{const char $\ast$}]{username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/include/libusenet/\hyperlink{nntpclient_8h}{nntpclient.\+h}\item 
+src/\hyperlink{nntpclient_8cpp}{nntpclient.\+cpp}\end{DoxyCompactItemize}

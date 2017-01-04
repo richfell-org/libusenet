@@ -1,0 +1,37 @@
+\hypertarget{yenc_8cpp}{}\section{src/yenc.cpp File Reference}
+\label{yenc_8cpp}\index{src/yenc.\+cpp@{src/yenc.\+cpp}}
+{\ttfamily \#include $<$libusenet/yenc.\+h$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacey_enc}{y\+Enc}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{yenc_8cpp_a0ccb666b573ddeb6e8a640995f3d0444}{I\+O\+B\+U\+F\+\_\+\+L\+EN}~(1024 $\ast$ 8)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacey_enc_aeb955c32dcf385759351e2792472819e}{y\+Enc\+::encode\+\_\+file} (const std\+::string \&path, std\+::ostream \&out, int line\+\_\+size=128)  throw (std\+::runtime\+\_\+error)
+\item 
+void \hyperlink{namespacey_enc_a829a7c38464eb09e2c1d210668c6207a}{y\+Enc\+::encode\+\_\+file\+\_\+for\+\_\+usenet} (const std\+::string \&path, std\+::ostream \&out, int line\+\_\+size)  throw (std\+::runtime\+\_\+error)
+\item 
+void \hyperlink{namespacey_enc_a2f5357e2cf810e07ffdbdd631b4d65b6}{y\+Enc\+::encode\+\_\+file} (const std\+::string \&path, std\+::ostream \&out, std\+::ostream \&($\ast$end\+\_\+line)(std\+::ostream \&), int line\+\_\+size=128)  throw (std\+::runtime\+\_\+error)
+\item 
+void \hyperlink{namespacey_enc_a7284d85b7024d64df6d7d7634b141017}{y\+Enc\+::encode\+\_\+file\+\_\+for\+\_\+usenet} (const std\+::string \&path, std\+::ostream \&out, std\+::ostream \&($\ast$end\+\_\+line)(std\+::ostream \&), int line\+\_\+size=128)  throw (std\+::runtime\+\_\+error)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{yenc_8cpp_a0ccb666b573ddeb6e8a640995f3d0444}{}\label{yenc_8cpp_a0ccb666b573ddeb6e8a640995f3d0444} 
+\index{yenc.\+cpp@{yenc.\+cpp}!I\+O\+B\+U\+F\+\_\+\+L\+EN@{I\+O\+B\+U\+F\+\_\+\+L\+EN}}
+\index{I\+O\+B\+U\+F\+\_\+\+L\+EN@{I\+O\+B\+U\+F\+\_\+\+L\+EN}!yenc.\+cpp@{yenc.\+cpp}}
+\subsubsection{\texorpdfstring{I\+O\+B\+U\+F\+\_\+\+L\+EN}{IOBUF\_LEN}}
+{\footnotesize\ttfamily \#define I\+O\+B\+U\+F\+\_\+\+L\+EN~(1024 $\ast$ 8)}
+

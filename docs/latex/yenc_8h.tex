@@ -1,0 +1,40 @@
+\hypertarget{yenc_8h}{}\section{src/include/libusenet/yenc.h File Reference}
+\label{yenc_8h}\index{src/include/libusenet/yenc.\+h@{src/include/libusenet/yenc.\+h}}
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}crc32.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classy_enc_1_1_encoder}{y\+Enc\+::\+Encoder}
+\item 
+class \hyperlink{classy_enc_1_1_decoder}{y\+Enc\+::\+Decoder}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacey_enc}{y\+Enc}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacey_enc_a6e002c8cbde1ad4f0f425b0b2b62c7ff}{y\+Enc\+::\+Decode\+Result} \{ \hyperlink{namespacey_enc_a6e002c8cbde1ad4f0f425b0b2b62c7ffaf1945d067db1e827dbc9bf2237443bbe}{y\+Enc\+::\+Decode\+Result\+::\+Y\+E\+N\+C\+\_\+\+N\+O\+NE}, 
+\hyperlink{namespacey_enc_a6e002c8cbde1ad4f0f425b0b2b62c7ffa9831c661885aff04d218fdb18f491db4}{y\+Enc\+::\+Decode\+Result\+::\+Y\+E\+N\+C\+\_\+\+D\+A\+TA}, 
+\hyperlink{namespacey_enc_a6e002c8cbde1ad4f0f425b0b2b62c7ffa71836824fc63da073c7382135d3761c6}{y\+Enc\+::\+Decode\+Result\+::\+Y\+E\+N\+C\+\_\+\+C\+O\+M\+P\+L\+E\+TE}, 
+\hyperlink{namespacey_enc_a6e002c8cbde1ad4f0f425b0b2b62c7ffaf71c566c30087437fd8af0c677d71845}{y\+Enc\+::\+Decode\+Result\+::\+Y\+E\+N\+C\+\_\+\+T\+R\+U\+N\+C\+A\+T\+ED}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacey_enc_aeb955c32dcf385759351e2792472819e}{y\+Enc\+::encode\+\_\+file} (const std\+::string \&path, std\+::ostream \&out, int line\+\_\+size=128)  throw (std\+::runtime\+\_\+error)
+\item 
+void \hyperlink{namespacey_enc_a829a7c38464eb09e2c1d210668c6207a}{y\+Enc\+::encode\+\_\+file\+\_\+for\+\_\+usenet} (const std\+::string \&path, std\+::ostream \&out, int line\+\_\+size)  throw (std\+::runtime\+\_\+error)
+\item 
+void \hyperlink{namespacey_enc_a2f5357e2cf810e07ffdbdd631b4d65b6}{y\+Enc\+::encode\+\_\+file} (const std\+::string \&path, std\+::ostream \&out, std\+::ostream \&($\ast$end\+\_\+line)(std\+::ostream \&), int line\+\_\+size=128)  throw (std\+::runtime\+\_\+error)
+\item 
+void \hyperlink{namespacey_enc_a7284d85b7024d64df6d7d7634b141017}{y\+Enc\+::encode\+\_\+file\+\_\+for\+\_\+usenet} (const std\+::string \&path, std\+::ostream \&out, std\+::ostream \&($\ast$end\+\_\+line)(std\+::ostream \&), int line\+\_\+size=128)  throw (std\+::runtime\+\_\+error)
+\end{DoxyCompactItemize}

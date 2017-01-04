@@ -1,0 +1,239 @@
+\hypertarget{class_expat_1_1_parse_handler}{}\section{Expat\+:\+:Parse\+Handler Class Reference}
+\label{class_expat_1_1_parse_handler}\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+
+
+{\ttfamily \#include $<$expat\+Parse.\+h$>$}
+
+Inheritance diagram for Expat\+:\+:Parse\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_expat_1_1_parse_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_expat_1_1_parse_handler_a0d1e9403a9de36e7f9864a0f665b8b65}{Parse\+Handler} ()
+\item 
+\hyperlink{class_expat_1_1_parse_handler_a2757b8dca21b50bc9ff8298591cfb6a6}{Parse\+Handler} (const \hyperlink{class_expat_1_1_parse_handler}{Parse\+Handler} \&)=delete
+\item 
+virtual \hyperlink{class_expat_1_1_parse_handler_a188f81926a657b5231fc4a60a5905701}{$\sim$\+Parse\+Handler} ()
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_aa6b631d6e771281fb965881545ebacfa}{start\+Element} (const X\+M\+L\+\_\+\+Char $\ast$name, const X\+M\+L\+\_\+\+Char $\ast$$\ast$attrs)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a13c775fa36138b4ee429e10b93177bec}{end\+Element} (const X\+M\+L\+\_\+\+Char $\ast$name)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_af3f6effd1ab8b85ec007b981f83d130e}{character\+Data} (const X\+M\+L\+\_\+\+Char $\ast$s, int len)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a7ede3019b6e3eba355504bc34f0143d9}{processing\+Instruction} (const X\+M\+L\+\_\+\+Char $\ast$target, const X\+M\+L\+\_\+\+Char $\ast$data)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a1a4635db36fc5f7abae3deb6ea47becc}{comment} (const X\+M\+L\+\_\+\+Char $\ast$data)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_aa839f673fa3b34090b3a6d4341da7df8}{start\+Cdata\+Section} ()
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a63611532e55e95c43d074846fdc73314}{end\+Cdata\+Section} ()
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a652aca387f4ed68e0178e89b75adb651}{default\+Handler} (const X\+M\+L\+\_\+\+Char $\ast$s, int len)
+\item 
+virtual int \hyperlink{class_expat_1_1_parse_handler_a54f2787ed9c5134d4a6bf7748a23c3cf}{external\+Entity\+Ref} (const X\+M\+L\+\_\+\+Char $\ast$context, const X\+M\+L\+\_\+\+Char $\ast$base, const X\+M\+L\+\_\+\+Char $\ast$system\+Id, const X\+M\+L\+\_\+\+Char $\ast$public\+Id)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a53aeb5ae280522c3c54a7f78fe660cb0}{skipped\+Entity} (const X\+M\+L\+\_\+\+Char $\ast$entity\+Name, int is\+\_\+parameter\+\_\+entity)
+\item 
+virtual int \hyperlink{class_expat_1_1_parse_handler_a85918826630176ca85004f828255fdbb}{unknown\+Encoding} (const X\+M\+L\+\_\+\+Char $\ast$name, X\+M\+L\+\_\+\+Encoding $\ast$info)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a24dfc830fb9b782c7a6382725b678954}{start\+Namespace\+Decl} (const X\+M\+L\+\_\+\+Char $\ast$prefix, const X\+M\+L\+\_\+\+Char $\ast$uri)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a143b6a2ac34bbbb46cff621c64d94220}{end\+Namespace\+Decl} (const X\+M\+L\+\_\+\+Char $\ast$prefix)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_addc24d4f9b97fd033deb8c1d14d6b9b8}{xml\+Decl} (const X\+M\+L\+\_\+\+Char $\ast$version, const X\+M\+L\+\_\+\+Char $\ast$encoding, int standalone)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a83d12b5e5f35a472655c178000993650}{start\+Doc\+Type} (const X\+M\+L\+\_\+\+Char $\ast$doctype\+Name, const X\+M\+L\+\_\+\+Char $\ast$sysid, const X\+M\+L\+\_\+\+Char $\ast$pubid, int has\+\_\+internal\+\_\+subset)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_ad0d1f858b37474da0f634c2d60d94da6}{end\+Doc\+Type} ()
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a671fa663133a106e4f9f7c0496ddef5a}{element\+Decl} (const X\+M\+L\+\_\+\+Char $\ast$name, X\+M\+L\+\_\+\+Content $\ast$model)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_aef520b46141f4c8249299470de092041}{attlist\+Decl} (const X\+M\+L\+\_\+\+Char $\ast$elname, const X\+M\+L\+\_\+\+Char $\ast$attname, const X\+M\+L\+\_\+\+Char $\ast$att\+\_\+type, const X\+M\+L\+\_\+\+Char $\ast$dflt, int isrequired)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_aee63f888e11cae11314311d240ea3b03}{entity\+Decl} (const X\+M\+L\+\_\+\+Char $\ast$entity\+Name, int is\+\_\+parameter\+\_\+entity, const X\+M\+L\+\_\+\+Char $\ast$value, int value\+\_\+length, const X\+M\+L\+\_\+\+Char $\ast$base, const X\+M\+L\+\_\+\+Char $\ast$system\+Id, const X\+M\+L\+\_\+\+Char $\ast$public\+Id, const X\+M\+L\+\_\+\+Char $\ast$notation\+Name)
+\item 
+virtual void \hyperlink{class_expat_1_1_parse_handler_a0f9bf618ebac7414e88573a743cad783}{notation\+Decl} (const X\+M\+L\+\_\+\+Char $\ast$notation\+Name, const X\+M\+L\+\_\+\+Char $\ast$base, const X\+M\+L\+\_\+\+Char $\ast$system\+Id, const X\+M\+L\+\_\+\+Char $\ast$public\+Id)
+\item 
+virtual int \hyperlink{class_expat_1_1_parse_handler_afae69dec3184c2cb9265faed9e65fab7}{not\+Standalone} ()
+\item 
+\hyperlink{class_expat_1_1_parse_handler}{Parse\+Handler} \& \hyperlink{class_expat_1_1_parse_handler_ab294e7d2b95b118a4e7b8d3c3ada78af}{operator=} (const \hyperlink{class_expat_1_1_parse_handler}{Parse\+Handler} \&)=delete
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_expat_1_1_parse_handler_a0d1e9403a9de36e7f9864a0f665b8b65}{}\label{class_expat_1_1_parse_handler_a0d1e9403a9de36e7f9864a0f665b8b65} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!Parse\+Handler@{Parse\+Handler}}
+\index{Parse\+Handler@{Parse\+Handler}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{Parse\+Handler()}{ParseHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Expat\+::\+Parse\+Handler\+::\+Parse\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_expat_1_1_parse_handler_a2757b8dca21b50bc9ff8298591cfb6a6}{}\label{class_expat_1_1_parse_handler_a2757b8dca21b50bc9ff8298591cfb6a6} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!Parse\+Handler@{Parse\+Handler}}
+\index{Parse\+Handler@{Parse\+Handler}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{Parse\+Handler()}{ParseHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Expat\+::\+Parse\+Handler\+::\+Parse\+Handler (\begin{DoxyParamCaption}\item[{const \hyperlink{class_expat_1_1_parse_handler}{Parse\+Handler} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a188f81926a657b5231fc4a60a5905701}{}\label{class_expat_1_1_parse_handler_a188f81926a657b5231fc4a60a5905701} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!````~Parse\+Handler@{$\sim$\+Parse\+Handler}}
+\index{````~Parse\+Handler@{$\sim$\+Parse\+Handler}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{$\sim$\+Parse\+Handler()}{~ParseHandler()}}
+{\footnotesize\ttfamily Expat\+::\+Parse\+Handler\+::$\sim$\+Parse\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_expat_1_1_parse_handler_aef520b46141f4c8249299470de092041}{}\label{class_expat_1_1_parse_handler_aef520b46141f4c8249299470de092041} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!attlist\+Decl@{attlist\+Decl}}
+\index{attlist\+Decl@{attlist\+Decl}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{attlist\+Decl()}{attlistDecl()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::attlist\+Decl (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{elname,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{attname,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{att\+\_\+type,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{dflt,  }\item[{int}]{isrequired }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_af3f6effd1ab8b85ec007b981f83d130e}{}\label{class_expat_1_1_parse_handler_af3f6effd1ab8b85ec007b981f83d130e} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!character\+Data@{character\+Data}}
+\index{character\+Data@{character\+Data}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{character\+Data()}{characterData()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::character\+Data (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{s,  }\item[{int}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_adafb3081bcec7653a9b0b3ce8f25a1a5}{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}.
+
+\hypertarget{class_expat_1_1_parse_handler_a1a4635db36fc5f7abae3deb6ea47becc}{}\label{class_expat_1_1_parse_handler_a1a4635db36fc5f7abae3deb6ea47becc} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!comment@{comment}}
+\index{comment@{comment}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{comment()}{comment()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::comment (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a652aca387f4ed68e0178e89b75adb651}{}\label{class_expat_1_1_parse_handler_a652aca387f4ed68e0178e89b75adb651} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!default\+Handler@{default\+Handler}}
+\index{default\+Handler@{default\+Handler}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{default\+Handler()}{defaultHandler()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::default\+Handler (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{s,  }\item[{int}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a671fa663133a106e4f9f7c0496ddef5a}{}\label{class_expat_1_1_parse_handler_a671fa663133a106e4f9f7c0496ddef5a} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!element\+Decl@{element\+Decl}}
+\index{element\+Decl@{element\+Decl}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{element\+Decl()}{elementDecl()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::element\+Decl (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{name,  }\item[{X\+M\+L\+\_\+\+Content $\ast$}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a63611532e55e95c43d074846fdc73314}{}\label{class_expat_1_1_parse_handler_a63611532e55e95c43d074846fdc73314} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!end\+Cdata\+Section@{end\+Cdata\+Section}}
+\index{end\+Cdata\+Section@{end\+Cdata\+Section}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{end\+Cdata\+Section()}{endCdataSection()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::end\+Cdata\+Section (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_ad0d1f858b37474da0f634c2d60d94da6}{}\label{class_expat_1_1_parse_handler_ad0d1f858b37474da0f634c2d60d94da6} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!end\+Doc\+Type@{end\+Doc\+Type}}
+\index{end\+Doc\+Type@{end\+Doc\+Type}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{end\+Doc\+Type()}{endDocType()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::end\+Doc\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a13c775fa36138b4ee429e10b93177bec}{}\label{class_expat_1_1_parse_handler_a13c775fa36138b4ee429e10b93177bec} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!end\+Element@{end\+Element}}
+\index{end\+Element@{end\+Element}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{end\+Element()}{endElement()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::end\+Element (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aadec64ab8a4f9bfd7f3b40bd76cce7aa}{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}, and \hyperlink{class_n_z_b_1_1_parse_1_1_pass1_parse_handler_afbdd1eaa80a10f66cba06a260fd9e7a1}{N\+Z\+B\+::\+Parse\+::\+Pass1\+Parse\+Handler}.
+
+\hypertarget{class_expat_1_1_parse_handler_a143b6a2ac34bbbb46cff621c64d94220}{}\label{class_expat_1_1_parse_handler_a143b6a2ac34bbbb46cff621c64d94220} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!end\+Namespace\+Decl@{end\+Namespace\+Decl}}
+\index{end\+Namespace\+Decl@{end\+Namespace\+Decl}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{end\+Namespace\+Decl()}{endNamespaceDecl()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::end\+Namespace\+Decl (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{prefix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_aee63f888e11cae11314311d240ea3b03}{}\label{class_expat_1_1_parse_handler_aee63f888e11cae11314311d240ea3b03} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!entity\+Decl@{entity\+Decl}}
+\index{entity\+Decl@{entity\+Decl}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{entity\+Decl()}{entityDecl()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::entity\+Decl (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{entity\+Name,  }\item[{int}]{is\+\_\+parameter\+\_\+entity,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{value,  }\item[{int}]{value\+\_\+length,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{base,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{system\+Id,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{public\+Id,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{notation\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a54f2787ed9c5134d4a6bf7748a23c3cf}{}\label{class_expat_1_1_parse_handler_a54f2787ed9c5134d4a6bf7748a23c3cf} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!external\+Entity\+Ref@{external\+Entity\+Ref}}
+\index{external\+Entity\+Ref@{external\+Entity\+Ref}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{external\+Entity\+Ref()}{externalEntityRef()}}
+{\footnotesize\ttfamily int Expat\+::\+Parse\+Handler\+::external\+Entity\+Ref (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{context,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{base,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{system\+Id,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{public\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a0f9bf618ebac7414e88573a743cad783}{}\label{class_expat_1_1_parse_handler_a0f9bf618ebac7414e88573a743cad783} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!notation\+Decl@{notation\+Decl}}
+\index{notation\+Decl@{notation\+Decl}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{notation\+Decl()}{notationDecl()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::notation\+Decl (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{notation\+Name,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{base,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{system\+Id,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{public\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_afae69dec3184c2cb9265faed9e65fab7}{}\label{class_expat_1_1_parse_handler_afae69dec3184c2cb9265faed9e65fab7} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!not\+Standalone@{not\+Standalone}}
+\index{not\+Standalone@{not\+Standalone}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{not\+Standalone()}{notStandalone()}}
+{\footnotesize\ttfamily int Expat\+::\+Parse\+Handler\+::not\+Standalone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_ab294e7d2b95b118a4e7b8d3c3ada78af}{}\label{class_expat_1_1_parse_handler_ab294e7d2b95b118a4e7b8d3c3ada78af} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!operator=@{operator=}}
+\index{operator=@{operator=}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \hyperlink{class_expat_1_1_parse_handler}{Parse\+Handler}\& Expat\+::\+Parse\+Handler\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_expat_1_1_parse_handler}{Parse\+Handler} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a7ede3019b6e3eba355504bc34f0143d9}{}\label{class_expat_1_1_parse_handler_a7ede3019b6e3eba355504bc34f0143d9} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!processing\+Instruction@{processing\+Instruction}}
+\index{processing\+Instruction@{processing\+Instruction}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{processing\+Instruction()}{processingInstruction()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::processing\+Instruction (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{target,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a53aeb5ae280522c3c54a7f78fe660cb0}{}\label{class_expat_1_1_parse_handler_a53aeb5ae280522c3c54a7f78fe660cb0} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!skipped\+Entity@{skipped\+Entity}}
+\index{skipped\+Entity@{skipped\+Entity}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{skipped\+Entity()}{skippedEntity()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::skipped\+Entity (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{entity\+Name,  }\item[{int}]{is\+\_\+parameter\+\_\+entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_aa839f673fa3b34090b3a6d4341da7df8}{}\label{class_expat_1_1_parse_handler_aa839f673fa3b34090b3a6d4341da7df8} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!start\+Cdata\+Section@{start\+Cdata\+Section}}
+\index{start\+Cdata\+Section@{start\+Cdata\+Section}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{start\+Cdata\+Section()}{startCdataSection()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::start\+Cdata\+Section (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a83d12b5e5f35a472655c178000993650}{}\label{class_expat_1_1_parse_handler_a83d12b5e5f35a472655c178000993650} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!start\+Doc\+Type@{start\+Doc\+Type}}
+\index{start\+Doc\+Type@{start\+Doc\+Type}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{start\+Doc\+Type()}{startDocType()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::start\+Doc\+Type (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{doctype\+Name,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{sysid,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{pubid,  }\item[{int}]{has\+\_\+internal\+\_\+subset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_aa6b631d6e771281fb965881545ebacfa}{}\label{class_expat_1_1_parse_handler_aa6b631d6e771281fb965881545ebacfa} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!start\+Element@{start\+Element}}
+\index{start\+Element@{start\+Element}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{start\+Element()}{startElement()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::start\+Element (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{name,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$$\ast$}]{attrs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a2b3ab039352b1bf106d795188d0cd4c1}{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}.
+
+\hypertarget{class_expat_1_1_parse_handler_a24dfc830fb9b782c7a6382725b678954}{}\label{class_expat_1_1_parse_handler_a24dfc830fb9b782c7a6382725b678954} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!start\+Namespace\+Decl@{start\+Namespace\+Decl}}
+\index{start\+Namespace\+Decl@{start\+Namespace\+Decl}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{start\+Namespace\+Decl()}{startNamespaceDecl()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::start\+Namespace\+Decl (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{prefix,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{uri }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_a85918826630176ca85004f828255fdbb}{}\label{class_expat_1_1_parse_handler_a85918826630176ca85004f828255fdbb} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!unknown\+Encoding@{unknown\+Encoding}}
+\index{unknown\+Encoding@{unknown\+Encoding}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{unknown\+Encoding()}{unknownEncoding()}}
+{\footnotesize\ttfamily int Expat\+::\+Parse\+Handler\+::unknown\+Encoding (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{name,  }\item[{X\+M\+L\+\_\+\+Encoding $\ast$}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_expat_1_1_parse_handler_addc24d4f9b97fd033deb8c1d14d6b9b8}{}\label{class_expat_1_1_parse_handler_addc24d4f9b97fd033deb8c1d14d6b9b8} 
+\index{Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}!xml\+Decl@{xml\+Decl}}
+\index{xml\+Decl@{xml\+Decl}!Expat\+::\+Parse\+Handler@{Expat\+::\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{xml\+Decl()}{xmlDecl()}}
+{\footnotesize\ttfamily void Expat\+::\+Parse\+Handler\+::xml\+Decl (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{version,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{encoding,  }\item[{int}]{standalone }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{expat_parse_8h}{expat\+Parse.\+h}\item 
+src/\hyperlink{expatparse_8cpp}{expatparse.\+cpp}\end{DoxyCompactItemize}

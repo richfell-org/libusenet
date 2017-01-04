@@ -1,0 +1,196 @@
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler}{}\section{N\+ZB\+:\+:Parse\+:\+:Pass2\+Parse\+Handler Class Reference}
+\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler}\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+Inheritance diagram for N\+ZB\+:\+:Parse\+:\+:Pass2\+Parse\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_n_z_b_1_1_parse_1_1_pass2_parse_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a04b11c88f54b2804e13043c5cd57e0d7}{Pass2\+Parse\+Handler} (\hyperlink{class_n_z_b_1_1_file}{N\+Z\+B\+::\+File} $\ast$p\+Files, \hyperlink{class_n_z_b_1_1_segment}{N\+Z\+B\+::\+Segment} $\ast$p\+Segments, \hyperlink{class_n_z_b_1_1_group}{N\+Z\+B\+::\+Group} $\ast$p\+Groups)
+\item 
+\hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aeda10efa356a2b6ef318a37684206f6c}{$\sim$\+Pass2\+Parse\+Handler} ()
+\item 
+void \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a2b3ab039352b1bf106d795188d0cd4c1}{start\+Element} (const X\+M\+L\+\_\+\+Char $\ast$name, const X\+M\+L\+\_\+\+Char $\ast$$\ast$attr)
+\item 
+void \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aadec64ab8a4f9bfd7f3b40bd76cce7aa}{end\+Element} (const X\+M\+L\+\_\+\+Char $\ast$name)
+\item 
+void \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_adafb3081bcec7653a9b0b3ce8f25a1a5}{character\+Data} (const X\+M\+L\+\_\+\+Char $\ast$s, int len)
+\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5}{Nzb\+Elem} \{ \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5aaa618133f4061942ff5b37fd61c800c2}{N\+O\+NE}, 
+\hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5a744ce3f7aac22b510695bbe70802fc99}{S\+E\+G\+M\+E\+NT}, 
+\hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5a66293d68619d407485329c5ce517f19e}{G\+R\+O\+UP}, 
+\hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5ab4ed997bce5cb2f78291e2c277e68e21}{N\+Z\+B\+F\+I\+LE}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5}{Nzb\+Elem} \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a9c826c2393e2f8d76d8ee1d0a126368e}{m\+Cur\+Elem}
+\item 
+\hyperlink{class_n_z_b_1_1_file}{N\+Z\+B\+::\+File} $\ast$ \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aed1cb652f2f9f66446634b487c88f2d0}{mp\+Files}
+\item 
+\hyperlink{class_n_z_b_1_1_segment}{N\+Z\+B\+::\+Segment} $\ast$ \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_af89a59538b17bf8b840e71c95c97f810}{mp\+Segments}
+\item 
+\hyperlink{class_n_z_b_1_1_group}{N\+Z\+B\+::\+Group} $\ast$ \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a04f7ef1c4c7547c15c49d81e7c404f85}{mp\+Groups}
+\item 
+int \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aac119e2e3690065b009cd53c21702ec6}{mi\+File}
+\item 
+int \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aac2dbf285dc01b72a7cda4e883fcb5b9}{mi\+Segment}
+\item 
+int \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_afd21564b9f52f71c12e6335140b849bd}{mi\+Segment\+Begin}
+\item 
+int \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a126d86f68bf8209f2f7b3aa6e9048bc3}{mi\+Group}
+\item 
+int \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_afa0b65267cec4fcf26ca934a66c3cc06}{mi\+Group\+Begin}
+\item 
+std\+::string \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a3e2bb4640047a0aa35ab93fb1a25465b}{m\+Chars}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!Nzb\+Elem@{Nzb\+Elem}}
+\index{Nzb\+Elem@{Nzb\+Elem}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{Nzb\+Elem}{NzbElem}}
+{\footnotesize\ttfamily enum \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5}{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::\+Nzb\+Elem}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+O\+NE@{N\+O\+NE}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!N\+O\+NE@{N\+O\+NE}}}\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5aaa618133f4061942ff5b37fd61c800c2}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5aaa618133f4061942ff5b37fd61c800c2} 
+N\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+E\+G\+M\+E\+NT@{S\+E\+G\+M\+E\+NT}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!S\+E\+G\+M\+E\+NT@{S\+E\+G\+M\+E\+NT}}}\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5a744ce3f7aac22b510695bbe70802fc99}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5a744ce3f7aac22b510695bbe70802fc99} 
+S\+E\+G\+M\+E\+NT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G\+R\+O\+UP@{G\+R\+O\+UP}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!G\+R\+O\+UP@{G\+R\+O\+UP}}}\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5a66293d68619d407485329c5ce517f19e}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5a66293d68619d407485329c5ce517f19e} 
+G\+R\+O\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{N\+Z\+B\+F\+I\+LE@{N\+Z\+B\+F\+I\+LE}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!N\+Z\+B\+F\+I\+LE@{N\+Z\+B\+F\+I\+LE}}}\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5ab4ed997bce5cb2f78291e2c277e68e21}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5ab4ed997bce5cb2f78291e2c277e68e21} 
+N\+Z\+B\+F\+I\+LE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a04b11c88f54b2804e13043c5cd57e0d7}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a04b11c88f54b2804e13043c5cd57e0d7} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!Pass2\+Parse\+Handler@{Pass2\+Parse\+Handler}}
+\index{Pass2\+Parse\+Handler@{Pass2\+Parse\+Handler}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{Pass2\+Parse\+Handler()}{Pass2ParseHandler()}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::\+Pass2\+Parse\+Handler (\begin{DoxyParamCaption}\item[{\hyperlink{class_n_z_b_1_1_file}{N\+Z\+B\+::\+File} $\ast$}]{p\+Files,  }\item[{\hyperlink{class_n_z_b_1_1_segment}{N\+Z\+B\+::\+Segment} $\ast$}]{p\+Segments,  }\item[{\hyperlink{class_n_z_b_1_1_group}{N\+Z\+B\+::\+Group} $\ast$}]{p\+Groups }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aeda10efa356a2b6ef318a37684206f6c}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aeda10efa356a2b6ef318a37684206f6c} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!````~Pass2\+Parse\+Handler@{$\sim$\+Pass2\+Parse\+Handler}}
+\index{````~Pass2\+Parse\+Handler@{$\sim$\+Pass2\+Parse\+Handler}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{$\sim$\+Pass2\+Parse\+Handler()}{~Pass2ParseHandler()}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::$\sim$\+Pass2\+Parse\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_adafb3081bcec7653a9b0b3ce8f25a1a5}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_adafb3081bcec7653a9b0b3ce8f25a1a5} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!character\+Data@{character\+Data}}
+\index{character\+Data@{character\+Data}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{character\+Data()}{characterData()}}
+{\footnotesize\ttfamily void N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::character\+Data (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{s,  }\item[{int}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_expat_1_1_parse_handler_af3f6effd1ab8b85ec007b981f83d130e}{Expat\+::\+Parse\+Handler}.
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aadec64ab8a4f9bfd7f3b40bd76cce7aa}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aadec64ab8a4f9bfd7f3b40bd76cce7aa} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!end\+Element@{end\+Element}}
+\index{end\+Element@{end\+Element}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{end\+Element()}{endElement()}}
+{\footnotesize\ttfamily void N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::end\+Element (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_expat_1_1_parse_handler_a13c775fa36138b4ee429e10b93177bec}{Expat\+::\+Parse\+Handler}.
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a2b3ab039352b1bf106d795188d0cd4c1}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a2b3ab039352b1bf106d795188d0cd4c1} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!start\+Element@{start\+Element}}
+\index{start\+Element@{start\+Element}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{start\+Element()}{startElement()}}
+{\footnotesize\ttfamily void N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::start\+Element (\begin{DoxyParamCaption}\item[{const X\+M\+L\+\_\+\+Char $\ast$}]{name,  }\item[{const X\+M\+L\+\_\+\+Char $\ast$$\ast$}]{attr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_expat_1_1_parse_handler_aa6b631d6e771281fb965881545ebacfa}{Expat\+::\+Parse\+Handler}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a3e2bb4640047a0aa35ab93fb1a25465b}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a3e2bb4640047a0aa35ab93fb1a25465b} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!m\+Chars@{m\+Chars}}
+\index{m\+Chars@{m\+Chars}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{m\+Chars}{mChars}}
+{\footnotesize\ttfamily std\+::string N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::m\+Chars\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a9c826c2393e2f8d76d8ee1d0a126368e}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a9c826c2393e2f8d76d8ee1d0a126368e} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!m\+Cur\+Elem@{m\+Cur\+Elem}}
+\index{m\+Cur\+Elem@{m\+Cur\+Elem}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{m\+Cur\+Elem}{mCurElem}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a05e6d45260e206949b805d1f8bb24cc5}{Nzb\+Elem} N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::m\+Cur\+Elem\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aac119e2e3690065b009cd53c21702ec6}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aac119e2e3690065b009cd53c21702ec6} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!mi\+File@{mi\+File}}
+\index{mi\+File@{mi\+File}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{mi\+File}{miFile}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::mi\+File\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a126d86f68bf8209f2f7b3aa6e9048bc3}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a126d86f68bf8209f2f7b3aa6e9048bc3} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!mi\+Group@{mi\+Group}}
+\index{mi\+Group@{mi\+Group}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{mi\+Group}{miGroup}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::mi\+Group\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_afa0b65267cec4fcf26ca934a66c3cc06}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_afa0b65267cec4fcf26ca934a66c3cc06} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!mi\+Group\+Begin@{mi\+Group\+Begin}}
+\index{mi\+Group\+Begin@{mi\+Group\+Begin}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{mi\+Group\+Begin}{miGroupBegin}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::mi\+Group\+Begin\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aac2dbf285dc01b72a7cda4e883fcb5b9}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aac2dbf285dc01b72a7cda4e883fcb5b9} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!mi\+Segment@{mi\+Segment}}
+\index{mi\+Segment@{mi\+Segment}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{mi\+Segment}{miSegment}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::mi\+Segment\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_afd21564b9f52f71c12e6335140b849bd}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_afd21564b9f52f71c12e6335140b849bd} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!mi\+Segment\+Begin@{mi\+Segment\+Begin}}
+\index{mi\+Segment\+Begin@{mi\+Segment\+Begin}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{mi\+Segment\+Begin}{miSegmentBegin}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::mi\+Segment\+Begin\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aed1cb652f2f9f66446634b487c88f2d0}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_aed1cb652f2f9f66446634b487c88f2d0} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!mp\+Files@{mp\+Files}}
+\index{mp\+Files@{mp\+Files}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{mp\+Files}{mpFiles}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_file}{N\+Z\+B\+::\+File}$\ast$ N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::mp\+Files\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a04f7ef1c4c7547c15c49d81e7c404f85}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_a04f7ef1c4c7547c15c49d81e7c404f85} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!mp\+Groups@{mp\+Groups}}
+\index{mp\+Groups@{mp\+Groups}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{mp\+Groups}{mpGroups}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_group}{N\+Z\+B\+::\+Group}$\ast$ N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::mp\+Groups\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_af89a59538b17bf8b840e71c95c97f810}{}\label{class_n_z_b_1_1_parse_1_1_pass2_parse_handler_af89a59538b17bf8b840e71c95c97f810} 
+\index{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}!mp\+Segments@{mp\+Segments}}
+\index{mp\+Segments@{mp\+Segments}!N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler@{N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler}}
+\subsubsection{\texorpdfstring{mp\+Segments}{mpSegments}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_segment}{N\+Z\+B\+::\+Segment}$\ast$ N\+Z\+B\+::\+Parse\+::\+Pass2\+Parse\+Handler\+::mp\+Segments\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{nzbparse_8cpp}{nzbparse.\+cpp}\end{DoxyCompactItemize}

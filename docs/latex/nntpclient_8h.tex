@@ -1,0 +1,68 @@
+\hypertarget{nntpclient_8h}{}\section{src/include/libusenet/nntpclient.h File Reference}
+\label{nntpclient_8h}\index{src/include/libusenet/nntpclient.\+h@{src/include/libusenet/nntpclient.\+h}}
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$system\+\_\+error$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$istream$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}options.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_nntp_client_1_1_server_addr}{Nntp\+Client\+::\+Server\+Addr}
+\item 
+class \hyperlink{class_nntp_client_1_1_response}{Nntp\+Client\+::\+Response}
+\item 
+class \hyperlink{class_nntp_client_1_1_connection}{Nntp\+Client\+::\+Connection}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_nntp_client}{Nntp\+Client}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Nntp\+Client\+::\+Response\+Status} \{ \newline
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203a5622f6534bb03c898a03674656059ce4}{Nntp\+Client\+::\+S\+\_\+\+N\+O\+NE} = 0, 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203ae3da43ae5216114a913432bec6efb66b}{Nntp\+Client\+::\+I\+N\+FO} = 1, 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203a3ad0a60c35af1f6e76ec780ec875f7c8}{Nntp\+Client\+::\+C\+M\+D\+\_\+\+OK}, 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203a33eab12e44e42e0bedd556fdc1787b31}{Nntp\+Client\+::\+C\+M\+D\+\_\+\+O\+K\+\_\+\+S\+O\+F\+AR}, 
+\newline
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203a7f587bbabadd6d10d51530a03df62102}{Nntp\+Client\+::\+C\+M\+D\+\_\+\+F\+A\+IL}, 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203a67ca1003650b24799ee702317a6878c6}{Nntp\+Client\+::\+E\+R\+R\+OR}
+ \}
+\item 
+enum \hyperlink{namespace_nntp_client_a2c87b9cd86975a1986a221b9a5885fb8}{Nntp\+Client\+::\+Response\+Function} \{ \newline
+\hyperlink{namespace_nntp_client_a2c87b9cd86975a1986a221b9a5885fb8a7667a3e50ec7ba278ff6841092a510dc}{Nntp\+Client\+::\+F\+\_\+\+N\+O\+NE} = -\/1, 
+\hyperlink{namespace_nntp_client_a2c87b9cd86975a1986a221b9a5885fb8a3bc604427c8f2f195e346f01bfac69e6}{Nntp\+Client\+::\+C\+O\+N\+N\+E\+C\+T\+I\+ON}, 
+\hyperlink{namespace_nntp_client_a2c87b9cd86975a1986a221b9a5885fb8afe00d8d51829d005864cf731a64953d3}{Nntp\+Client\+::\+G\+R\+O\+U\+P\+\_\+\+S\+E\+L\+E\+C\+T\+I\+ON}, 
+\hyperlink{namespace_nntp_client_a2c87b9cd86975a1986a221b9a5885fb8af730ef6495e81be53322fd0b9eb9f467}{Nntp\+Client\+::\+A\+R\+T\+I\+C\+L\+E\+\_\+\+S\+E\+L\+E\+C\+T\+I\+ON}, 
+\newline
+\hyperlink{namespace_nntp_client_a2c87b9cd86975a1986a221b9a5885fb8ae7643c92d73b0a6b6570b7347ccfe3fd}{Nntp\+Client\+::\+D\+I\+S\+T\+RO}, 
+\hyperlink{namespace_nntp_client_a2c87b9cd86975a1986a221b9a5885fb8a209a035efd4ab3ba04ae2bfabc1656cb}{Nntp\+Client\+::\+P\+O\+S\+T\+I\+NG}, 
+\hyperlink{namespace_nntp_client_a2c87b9cd86975a1986a221b9a5885fb8a60f914aa3dd69952e14700505f9a9379}{Nntp\+Client\+::\+N\+O\+N\+\_\+\+S\+TD} = 8, 
+\hyperlink{namespace_nntp_client_a2c87b9cd86975a1986a221b9a5885fb8a5cb8d4b4ae25f785fe2662f0a4efa1e4}{Nntp\+Client\+::\+D\+E\+B\+U\+G\+G\+I\+NG}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::istream \& \hyperlink{nntpclient_8h_a1e2846eca8ce9655ac209e03e315f7b8}{operator$>$$>$} (std\+::istream \&is, \hyperlink{class_nntp_client_1_1_response}{Nntp\+Client\+::\+Response} \&r)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{namespace_nntp_client_a6a246ad62d0a9fcfe4428ecd83079e1d}{Nntp\+Client\+::nntp\+\_\+tcp\+\_\+protocol} = 6
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{nntpclient_8h_a1e2846eca8ce9655ac209e03e315f7b8}{}\label{nntpclient_8h_a1e2846eca8ce9655ac209e03e315f7b8} 
+\index{nntpclient.\+h@{nntpclient.\+h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!nntpclient.\+h@{nntpclient.\+h}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\hyperlink{class_nntp_client_1_1_response}{Nntp\+Client\+::\+Response} \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

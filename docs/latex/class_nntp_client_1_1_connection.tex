@@ -1,0 +1,278 @@
+\hypertarget{class_nntp_client_1_1_connection}{}\section{Nntp\+Client\+:\+:Connection Class Reference}
+\label{class_nntp_client_1_1_connection}\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+
+
+{\ttfamily \#include $<$nntpclient.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_nntp_client_1_1_connection_adcf4522afd5361bf7c27a1c00825585a}{Connection} ()  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{class_nntp_client_1_1_connection_a78f4aedbe993d16ff65b850a3683de2c}{Connection} (const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&server, \hyperlink{class_nntp_client_1_1_response}{Response} \&response)  throw (std\+::system\+\_\+error)
+\item 
+\hyperlink{class_nntp_client_1_1_connection_ac9d3d28905af4a394e70745ff2b74e72}{Connection} (\hyperlink{class_nntp_client_1_1_connection}{Connection} \&\&trans\+Connection)
+\item 
+\hyperlink{class_nntp_client_1_1_connection_af42bb1e5ff15c16c8779d10965d0e5d8}{Connection} (const \hyperlink{class_nntp_client_1_1_connection}{Connection} \&)=delete
+\item 
+virtual \hyperlink{class_nntp_client_1_1_connection_acc2047fde3c627a15501db0039d9d7e3}{$\sim$\+Connection} ()
+\item 
+int \hyperlink{class_nntp_client_1_1_connection_a4ff39dca9e9fa2c98a2d36bccfe2ddbf}{get\+\_\+timeout} () const
+\item 
+void \hyperlink{class_nntp_client_1_1_connection_a63ed1e33695a7c6e816346c7d275b65d}{set\+\_\+timeout} (int seconds)
+\item 
+virtual void \hyperlink{class_nntp_client_1_1_connection_ad41b4cb74ddbeacf838b0e0b20d692e5}{open} (const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&server, \hyperlink{class_nntp_client_1_1_response}{Response} \&response)  throw (std\+::runtime\+\_\+error)
+\item 
+virtual void \hyperlink{class_nntp_client_1_1_connection_ac2e2693bf8693a71f8bcade6cc57dbfb}{close} ()
+\item 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} \hyperlink{class_nntp_client_1_1_connection_a7eb4da715f24ad554dac36642f46850a}{read\+\_\+response} (\hyperlink{class_nntp_client_1_1_response}{Response} \&response)  throw (std\+::runtime\+\_\+error)
+\item 
+int \hyperlink{class_nntp_client_1_1_connection_a4be644ac15bed1aac402e7562a6c2f3e}{read\+\_\+line} (char $\ast$buf, size\+\_\+t buflen)  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} \hyperlink{class_nntp_client_1_1_connection_a198e438060db29f7d6c990849d887d89}{group} (const char $\ast$group\+\_\+name, \hyperlink{class_nntp_client_1_1_response}{Response} response)  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} \hyperlink{class_nntp_client_1_1_connection_a059b80b6d2986a76704792cccf1e2f9a}{stat} (const char $\ast$message\+\_\+id, \hyperlink{class_nntp_client_1_1_response}{Response} response)  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} \hyperlink{class_nntp_client_1_1_connection_a778194b662ca3954ef00122a8f7beb82}{article} (const char $\ast$message\+\_\+id, \hyperlink{class_nntp_client_1_1_response}{Response} \&response)  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} \hyperlink{class_nntp_client_1_1_connection_ad9a97c7814f2a0584cb45447a2ca5472}{header} (const char $\ast$message\+\_\+id, \hyperlink{class_nntp_client_1_1_response}{Response} \&response)  throw (std\+::runtime\+\_\+error)
+\item 
+\hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} \hyperlink{class_nntp_client_1_1_connection_a1665cd7d2bdb1960222f2935ecf26e8f}{body} (const char $\ast$message\+\_\+id, \hyperlink{class_nntp_client_1_1_response}{Response} \&response)  throw (std\+::runtime\+\_\+error)
+\item 
+void \hyperlink{class_nntp_client_1_1_connection_a49adc2c2fc472d6066dbd4282a28ba6a}{send} (const char $\ast$cmd)  throw (std\+::runtime\+\_\+error)
+\item 
+void \hyperlink{class_nntp_client_1_1_connection_a3a3e41cb99fd302d63f3d5cdb5f793f5}{send} (const char $\ast$cmd, const char $\ast$arg1,...)  throw (std\+::runtime\+\_\+error)
+\item 
+void \hyperlink{class_nntp_client_1_1_connection_ad2338e224cb16800508151cbcbf3f77c}{send} (const void $\ast$buf, unsigned long len)  throw (std\+::runtime\+\_\+error)
+\item 
+virtual \hyperlink{class_nntp_client_1_1_connection}{Connection} \& \hyperlink{class_nntp_client_1_1_connection_af23500ee46f48a9ae8b724d4169ea853}{operator=} (\hyperlink{class_nntp_client_1_1_connection}{Connection} \&\&trans\+Connection)
+\item 
+\hyperlink{class_nntp_client_1_1_connection}{Connection} \& \hyperlink{class_nntp_client_1_1_connection_af71eb88c036281c8e6e712831c1f94f8}{operator=} (const \hyperlink{class_nntp_client_1_1_connection}{Connection} \&)=delete
+\item 
+\hyperlink{class_nntp_client_1_1_connection_aae3445a5eb5c440a425d1e342fd4f0d8}{operator bool} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_nntp_client_1_1_connection_afd86e34fcca569da32627d2b458caebf}{connect} (const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&server)  throw (std\+::system\+\_\+error)
+\item 
+virtual void \hyperlink{class_nntp_client_1_1_connection_a877aa852a68915e0ecf82cd147c0b451}{authenticate} (const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&server, \hyperlink{class_nntp_client_1_1_response}{Response} \&response)  throw (std\+::runtime\+\_\+error)
+\item 
+virtual void \hyperlink{class_nntp_client_1_1_connection_aed3a92b2dd40fa1855c2d71df424f217}{write} (const void $\ast$buf, size\+\_\+t nbyte)  throw (std\+::system\+\_\+error)
+\item 
+virtual int \hyperlink{class_nntp_client_1_1_connection_aed3df70a3839498d0fd3080be9be35d6}{read} (void $\ast$buf, size\+\_\+t nbyte)  throw (std\+::system\+\_\+error)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_nntp_client_1_1_connection_a617eb80b423c28d3f7feaff839787e3e}{m\+\_\+sock}
+\item 
+int \hyperlink{class_nntp_client_1_1_connection_a04d0a1dc3f7df1d80599002ec7c74b4b}{m\+\_\+rdsz}
+\item 
+int \hyperlink{class_nntp_client_1_1_connection_a3890026e452ddbd58f184734ddd1f036}{m\+\_\+ibuf}
+\item 
+int \hyperlink{class_nntp_client_1_1_connection_ac976a7e92125e6c8751a06faf1a323b6}{m\+\_\+buflen}
+\item 
+std\+::unique\+\_\+ptr$<$ char\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_nntp_client_1_1_connection_a4a3885811f0cfe873c8091bc659fb23a}{m\+\_\+bufptr}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_nntp_client_1_1_connection_adcf4522afd5361bf7c27a1c00825585a}{}\label{class_nntp_client_1_1_connection_adcf4522afd5361bf7c27a1c00825585a} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{Connection()}{Connection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Connection\+::\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_a78f4aedbe993d16ff65b850a3683de2c}{}\label{class_nntp_client_1_1_connection_a78f4aedbe993d16ff65b850a3683de2c} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{Connection()}{Connection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Connection\+::\+Connection (\begin{DoxyParamCaption}\item[{const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&}]{server,  }\item[{\hyperlink{class_nntp_client_1_1_response}{Response} \&}]{response }\end{DoxyParamCaption}) throw  std\+::system\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_ac9d3d28905af4a394e70745ff2b74e72}{}\label{class_nntp_client_1_1_connection_ac9d3d28905af4a394e70745ff2b74e72} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{Connection()}{Connection()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Connection\+::\+Connection (\begin{DoxyParamCaption}\item[{\hyperlink{class_nntp_client_1_1_connection}{Connection} \&\&}]{trans\+Connection }\end{DoxyParamCaption})}
+
+\hypertarget{class_nntp_client_1_1_connection_af42bb1e5ff15c16c8779d10965d0e5d8}{}\label{class_nntp_client_1_1_connection_af42bb1e5ff15c16c8779d10965d0e5d8} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{Connection()}{Connection()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Connection\+::\+Connection (\begin{DoxyParamCaption}\item[{const \hyperlink{class_nntp_client_1_1_connection}{Connection} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\hypertarget{class_nntp_client_1_1_connection_acc2047fde3c627a15501db0039d9d7e3}{}\label{class_nntp_client_1_1_connection_acc2047fde3c627a15501db0039d9d7e3} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!````~Connection@{$\sim$\+Connection}}
+\index{````~Connection@{$\sim$\+Connection}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{$\sim$\+Connection()}{~Connection()}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Connection\+::$\sim$\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_nntp_client_1_1_connection_a778194b662ca3954ef00122a8f7beb82}{}\label{class_nntp_client_1_1_connection_a778194b662ca3954ef00122a8f7beb82} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!article@{article}}
+\index{article@{article}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{article()}{article()}}
+{\footnotesize\ttfamily \hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} Nntp\+Client\+::\+Connection\+::article (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message\+\_\+id,  }\item[{\hyperlink{class_nntp_client_1_1_response}{Response} \&}]{response }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_a877aa852a68915e0ecf82cd147c0b451}{}\label{class_nntp_client_1_1_connection_a877aa852a68915e0ecf82cd147c0b451} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!authenticate@{authenticate}}
+\index{authenticate@{authenticate}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{authenticate()}{authenticate()}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Connection\+::authenticate (\begin{DoxyParamCaption}\item[{const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&}]{server,  }\item[{\hyperlink{class_nntp_client_1_1_response}{Response} \&}]{response }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) \hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\hypertarget{class_nntp_client_1_1_connection_a1665cd7d2bdb1960222f2935ecf26e8f}{}\label{class_nntp_client_1_1_connection_a1665cd7d2bdb1960222f2935ecf26e8f} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!body@{body}}
+\index{body@{body}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{body()}{body()}}
+{\footnotesize\ttfamily \hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} Nntp\+Client\+::\+Connection\+::body (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message\+\_\+id,  }\item[{\hyperlink{class_nntp_client_1_1_response}{Response} \&}]{response }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_ac2e2693bf8693a71f8bcade6cc57dbfb}{}\label{class_nntp_client_1_1_connection_ac2e2693bf8693a71f8bcade6cc57dbfb} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!close@{close}}
+\index{close@{close}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Connection\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_nntp_client_1_1_connection_afd86e34fcca569da32627d2b458caebf}{}\label{class_nntp_client_1_1_connection_afd86e34fcca569da32627d2b458caebf} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!connect@{connect}}
+\index{connect@{connect}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Connection\+::connect (\begin{DoxyParamCaption}\item[{const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&}]{server }\end{DoxyParamCaption}) throw  std\+::system\+\_\+error) \hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\hypertarget{class_nntp_client_1_1_connection_a4ff39dca9e9fa2c98a2d36bccfe2ddbf}{}\label{class_nntp_client_1_1_connection_a4ff39dca9e9fa2c98a2d36bccfe2ddbf} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!get\+\_\+timeout@{get\+\_\+timeout}}
+\index{get\+\_\+timeout@{get\+\_\+timeout}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{get\+\_\+timeout()}{get\_timeout()}}
+{\footnotesize\ttfamily int Nntp\+Client\+::\+Connection\+::get\+\_\+timeout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_nntp_client_1_1_connection_a198e438060db29f7d6c990849d887d89}{}\label{class_nntp_client_1_1_connection_a198e438060db29f7d6c990849d887d89} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!group@{group}}
+\index{group@{group}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{group()}{group()}}
+{\footnotesize\ttfamily \hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} Nntp\+Client\+::\+Connection\+::group (\begin{DoxyParamCaption}\item[{const char $\ast$}]{group\+\_\+name,  }\item[{\hyperlink{class_nntp_client_1_1_response}{Response}}]{response }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_ad9a97c7814f2a0584cb45447a2ca5472}{}\label{class_nntp_client_1_1_connection_ad9a97c7814f2a0584cb45447a2ca5472} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!header@{header}}
+\index{header@{header}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{header()}{header()}}
+{\footnotesize\ttfamily \hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} Nntp\+Client\+::\+Connection\+::header (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message\+\_\+id,  }\item[{\hyperlink{class_nntp_client_1_1_response}{Response} \&}]{response }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_ad41b4cb74ddbeacf838b0e0b20d692e5}{}\label{class_nntp_client_1_1_connection_ad41b4cb74ddbeacf838b0e0b20d692e5} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!open@{open}}
+\index{open@{open}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Connection\+::open (\begin{DoxyParamCaption}\item[{const \hyperlink{class_nntp_client_1_1_server_addr}{Server\+Addr} \&}]{server,  }\item[{\hyperlink{class_nntp_client_1_1_response}{Response} \&}]{response }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) \hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_nntp_client_1_1_connection_aae3445a5eb5c440a425d1e342fd4f0d8}{}\label{class_nntp_client_1_1_connection_aae3445a5eb5c440a425d1e342fd4f0d8} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily Nntp\+Client\+::\+Connection\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_nntp_client_1_1_connection_af23500ee46f48a9ae8b724d4169ea853}{}\label{class_nntp_client_1_1_connection_af23500ee46f48a9ae8b724d4169ea853} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!operator=@{operator=}}
+\index{operator=@{operator=}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_nntp_client_1_1_connection}{Connection} \& Nntp\+Client\+::\+Connection\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{class_nntp_client_1_1_connection}{Connection} \&\&}]{trans\+Connection }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\hypertarget{class_nntp_client_1_1_connection_af71eb88c036281c8e6e712831c1f94f8}{}\label{class_nntp_client_1_1_connection_af71eb88c036281c8e6e712831c1f94f8} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!operator=@{operator=}}
+\index{operator=@{operator=}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_nntp_client_1_1_connection}{Connection}\& Nntp\+Client\+::\+Connection\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_nntp_client_1_1_connection}{Connection} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\hypertarget{class_nntp_client_1_1_connection_aed3df70a3839498d0fd3080be9be35d6}{}\label{class_nntp_client_1_1_connection_aed3df70a3839498d0fd3080be9be35d6} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!read@{read}}
+\index{read@{read}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int Nntp\+Client\+::\+Connection\+::read (\begin{DoxyParamCaption}\item[{void $\ast$}]{buf,  }\item[{size\+\_\+t}]{nbyte }\end{DoxyParamCaption}) throw  std\+::system\+\_\+error) \hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\hypertarget{class_nntp_client_1_1_connection_a4be644ac15bed1aac402e7562a6c2f3e}{}\label{class_nntp_client_1_1_connection_a4be644ac15bed1aac402e7562a6c2f3e} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!read\+\_\+line@{read\+\_\+line}}
+\index{read\+\_\+line@{read\+\_\+line}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{read\+\_\+line()}{read\_line()}}
+{\footnotesize\ttfamily int Nntp\+Client\+::\+Connection\+::read\+\_\+line (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{size\+\_\+t}]{buflen }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_a7eb4da715f24ad554dac36642f46850a}{}\label{class_nntp_client_1_1_connection_a7eb4da715f24ad554dac36642f46850a} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!read\+\_\+response@{read\+\_\+response}}
+\index{read\+\_\+response@{read\+\_\+response}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{read\+\_\+response()}{read\_response()}}
+{\footnotesize\ttfamily \hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} Nntp\+Client\+::\+Connection\+::read\+\_\+response (\begin{DoxyParamCaption}\item[{\hyperlink{class_nntp_client_1_1_response}{Response} \&}]{response }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_a49adc2c2fc472d6066dbd4282a28ba6a}{}\label{class_nntp_client_1_1_connection_a49adc2c2fc472d6066dbd4282a28ba6a} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!send@{send}}
+\index{send@{send}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Connection\+::send (\begin{DoxyParamCaption}\item[{const char $\ast$}]{cmd }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_a3a3e41cb99fd302d63f3d5cdb5f793f5}{}\label{class_nntp_client_1_1_connection_a3a3e41cb99fd302d63f3d5cdb5f793f5} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!send@{send}}
+\index{send@{send}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Connection\+::send (\begin{DoxyParamCaption}\item[{const char $\ast$}]{cmd,  }\item[{const char $\ast$}]{arg1,  }\item[{}]{... }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_ad2338e224cb16800508151cbcbf3f77c}{}\label{class_nntp_client_1_1_connection_ad2338e224cb16800508151cbcbf3f77c} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!send@{send}}
+\index{send@{send}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{send()}{send()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Connection\+::send (\begin{DoxyParamCaption}\item[{const void $\ast$}]{buf,  }\item[{unsigned long}]{len }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_a63ed1e33695a7c6e816346c7d275b65d}{}\label{class_nntp_client_1_1_connection_a63ed1e33695a7c6e816346c7d275b65d} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!set\+\_\+timeout@{set\+\_\+timeout}}
+\index{set\+\_\+timeout@{set\+\_\+timeout}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{set\+\_\+timeout()}{set\_timeout()}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Connection\+::set\+\_\+timeout (\begin{DoxyParamCaption}\item[{int}]{seconds }\end{DoxyParamCaption})}
+
+\hypertarget{class_nntp_client_1_1_connection_a059b80b6d2986a76704792cccf1e2f9a}{}\label{class_nntp_client_1_1_connection_a059b80b6d2986a76704792cccf1e2f9a} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!stat@{stat}}
+\index{stat@{stat}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{stat()}{stat()}}
+{\footnotesize\ttfamily \hyperlink{namespace_nntp_client_a920c73a4038b2a2c307245b909b43203}{Response\+Status} Nntp\+Client\+::\+Connection\+::stat (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message\+\_\+id,  }\item[{\hyperlink{class_nntp_client_1_1_response}{Response}}]{response }\end{DoxyParamCaption}) throw  std\+::runtime\+\_\+error) }
+
+\hypertarget{class_nntp_client_1_1_connection_aed3a92b2dd40fa1855c2d71df424f217}{}\label{class_nntp_client_1_1_connection_aed3a92b2dd40fa1855c2d71df424f217} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!write@{write}}
+\index{write@{write}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Nntp\+Client\+::\+Connection\+::write (\begin{DoxyParamCaption}\item[{const void $\ast$}]{buf,  }\item[{size\+\_\+t}]{nbyte }\end{DoxyParamCaption}) throw  std\+::system\+\_\+error) \hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_nntp_client_1_1_connection_ac976a7e92125e6c8751a06faf1a323b6}{}\label{class_nntp_client_1_1_connection_ac976a7e92125e6c8751a06faf1a323b6} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!m\+\_\+buflen@{m\+\_\+buflen}}
+\index{m\+\_\+buflen@{m\+\_\+buflen}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{m\+\_\+buflen}{m\_buflen}}
+{\footnotesize\ttfamily int Nntp\+Client\+::\+Connection\+::m\+\_\+buflen\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_nntp_client_1_1_connection_a4a3885811f0cfe873c8091bc659fb23a}{}\label{class_nntp_client_1_1_connection_a4a3885811f0cfe873c8091bc659fb23a} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!m\+\_\+bufptr@{m\+\_\+bufptr}}
+\index{m\+\_\+bufptr@{m\+\_\+bufptr}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{m\+\_\+bufptr}{m\_bufptr}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$char\mbox{[}$\,$\mbox{]}$>$ Nntp\+Client\+::\+Connection\+::m\+\_\+bufptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_nntp_client_1_1_connection_a3890026e452ddbd58f184734ddd1f036}{}\label{class_nntp_client_1_1_connection_a3890026e452ddbd58f184734ddd1f036} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!m\+\_\+ibuf@{m\+\_\+ibuf}}
+\index{m\+\_\+ibuf@{m\+\_\+ibuf}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{m\+\_\+ibuf}{m\_ibuf}}
+{\footnotesize\ttfamily int Nntp\+Client\+::\+Connection\+::m\+\_\+ibuf\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_nntp_client_1_1_connection_a04d0a1dc3f7df1d80599002ec7c74b4b}{}\label{class_nntp_client_1_1_connection_a04d0a1dc3f7df1d80599002ec7c74b4b} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!m\+\_\+rdsz@{m\+\_\+rdsz}}
+\index{m\+\_\+rdsz@{m\+\_\+rdsz}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{m\+\_\+rdsz}{m\_rdsz}}
+{\footnotesize\ttfamily int Nntp\+Client\+::\+Connection\+::m\+\_\+rdsz\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_nntp_client_1_1_connection_a617eb80b423c28d3f7feaff839787e3e}{}\label{class_nntp_client_1_1_connection_a617eb80b423c28d3f7feaff839787e3e} 
+\index{Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}!m\+\_\+sock@{m\+\_\+sock}}
+\index{m\+\_\+sock@{m\+\_\+sock}!Nntp\+Client\+::\+Connection@{Nntp\+Client\+::\+Connection}}
+\subsubsection{\texorpdfstring{m\+\_\+sock}{m\_sock}}
+{\footnotesize\ttfamily int Nntp\+Client\+::\+Connection\+::m\+\_\+sock\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/include/libusenet/\hyperlink{nntpclient_8h}{nntpclient.\+h}\item 
+src/\hyperlink{nntpclient_8cpp}{nntpclient.\+cpp}\end{DoxyCompactItemize}

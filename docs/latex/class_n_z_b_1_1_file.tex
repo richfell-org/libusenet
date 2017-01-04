@@ -1,0 +1,235 @@
+\hypertarget{class_n_z_b_1_1_file}{}\section{N\+ZB\+:\+:File Class Reference}
+\label{class_n_z_b_1_1_file}\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+
+
+{\ttfamily \#include $<$nzb.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_n_z_b_1_1_file_ac5e08598cb3f05601149485eb02eae7a}{File} ()
+\item 
+\hyperlink{class_n_z_b_1_1_file_a1d87fa686b8f2cb0c2b8820ef088ba05}{File} (const char $\ast$subject, const char $\ast$poster, time\+\_\+t timestamp)
+\item 
+\hyperlink{class_n_z_b_1_1_file_af83c62781c50d7cc8e1808234920b8a6}{File} (int segment\+Count, \hyperlink{class_n_z_b_1_1_segment}{Segment} $\ast$p\+Segments, int group\+Count, \hyperlink{class_n_z_b_1_1_group}{Group} $\ast$p\+Groups)
+\item 
+\hyperlink{class_n_z_b_1_1_file_a3863e5112bd3e0ee5be4770bc7b4cb5e}{File} (\hyperlink{class_n_z_b_1_1_file}{File} \&\&rv\+File)
+\item 
+\hyperlink{class_n_z_b_1_1_file_ab9c267164945ff326166490b427b7393}{$\sim$\+File} ()
+\item 
+time\+\_\+t \hyperlink{class_n_z_b_1_1_file_a01adb6cd77a2f9546043aec2d8fef936}{get\+Timestamp} () const
+\item 
+std\+::string \& \hyperlink{class_n_z_b_1_1_file_a1110d411e6e7fd3ecb9b7f74e476924b}{get\+Subject} ()
+\item 
+const std\+::string \& \hyperlink{class_n_z_b_1_1_file_aa14b0404ce708a3cd15c7aa6803704ee}{get\+Subject} () const
+\item 
+std\+::string \& \hyperlink{class_n_z_b_1_1_file_a5203542d4807f92d520c6101a8927af9}{get\+Poster} ()
+\item 
+const std\+::string \& \hyperlink{class_n_z_b_1_1_file_af093b1edbffcafdae7f37c05d6581d0e}{get\+Poster} () const
+\item 
+int \hyperlink{class_n_z_b_1_1_file_a2aab94f806e5cc265413e3ad4d7e5ec2}{get\+Segment\+Count} () const
+\item 
+\hyperlink{class_n_z_b_1_1_segment}{Segment} \& \hyperlink{class_n_z_b_1_1_file_a5f4d723636e54b354f89c34cd3e578cb}{get\+Segment} (int i\+Segment)
+\item 
+const \hyperlink{class_n_z_b_1_1_segment}{Segment} \& \hyperlink{class_n_z_b_1_1_file_a092df4f0a0e79ebf21c033f45d83b67f}{get\+Segment} (int i\+Segment) const
+\item 
+void \hyperlink{class_n_z_b_1_1_file_a35796f99c09199259761c16295635349}{set\+Segments} (int count, \hyperlink{class_n_z_b_1_1_segment}{Segment} $\ast$p\+Segments)
+\item 
+int \hyperlink{class_n_z_b_1_1_file_a423866b094bc656afbb4cf6a3667c8b6}{get\+Group\+Count} () const
+\item 
+\hyperlink{class_n_z_b_1_1_group}{Group} \& \hyperlink{class_n_z_b_1_1_file_a7baaa4ddddfbe5a63671329cf239d8f5}{get\+Group} (int i\+Group)
+\item 
+const \hyperlink{class_n_z_b_1_1_group}{Group} \& \hyperlink{class_n_z_b_1_1_file_a286c4fc01910d1c1e9d70369d768b641}{get\+Group} (int i\+Group) const
+\item 
+void \hyperlink{class_n_z_b_1_1_file_a3316ed024ea100d7afefcc9f5bcba25f}{set\+Groups} (int count, \hyperlink{class_n_z_b_1_1_group}{Group} $\ast$p\+Groups)
+\item 
+\hyperlink{class_n_z_b_1_1_file}{File} \& \hyperlink{class_n_z_b_1_1_file_a29355ed8ab7a8bd97588b8a1ade358de}{operator=} (\hyperlink{class_n_z_b_1_1_file}{File} \&\&rv\+File)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+time\+\_\+t \hyperlink{class_n_z_b_1_1_file_a57e957204ffcb538b70c98a9c000e6ab}{m\+Timestamp}
+\item 
+std\+::string \hyperlink{class_n_z_b_1_1_file_a426bdfb4be69a92a56afa2fe0d16e522}{m\+Subject}
+\item 
+std\+::string \hyperlink{class_n_z_b_1_1_file_ad50b2da39f242433c24ae28be16a2429}{m\+Poster}
+\item 
+int \hyperlink{class_n_z_b_1_1_file_a7b60730fb288ccc891a16256a935dbba}{m\+Segment\+Count}
+\item 
+\hyperlink{class_n_z_b_1_1_segment}{Segment} $\ast$ \hyperlink{class_n_z_b_1_1_file_ad8d7a8167b46230dd86439cb95a98cb7}{mp\+Segments}
+\item 
+int \hyperlink{class_n_z_b_1_1_file_aaf96258452951818ba93e90a5f0de6b6}{m\+Group\+Count}
+\item 
+\hyperlink{class_n_z_b_1_1_group}{Group} $\ast$ \hyperlink{class_n_z_b_1_1_file_a1afca4ebb4dd759001b70e64ae4c8136}{mp\+Groups}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_n_z_b_1_1_file_ac5e08598cb3f05601149485eb02eae7a}{}\label{class_n_z_b_1_1_file_ac5e08598cb3f05601149485eb02eae7a} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!File@{File}}
+\index{File@{File}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{File()}{File()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+::\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_a1d87fa686b8f2cb0c2b8820ef088ba05}{}\label{class_n_z_b_1_1_file_a1d87fa686b8f2cb0c2b8820ef088ba05} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!File@{File}}
+\index{File@{File}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{File()}{File()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+::\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{subject,  }\item[{const char $\ast$}]{poster,  }\item[{time\+\_\+t}]{timestamp }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_af83c62781c50d7cc8e1808234920b8a6}{}\label{class_n_z_b_1_1_file_af83c62781c50d7cc8e1808234920b8a6} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!File@{File}}
+\index{File@{File}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{File()}{File()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+::\+File (\begin{DoxyParamCaption}\item[{int}]{segment\+Count,  }\item[{\hyperlink{class_n_z_b_1_1_segment}{Segment} $\ast$}]{p\+Segments,  }\item[{int}]{group\+Count,  }\item[{\hyperlink{class_n_z_b_1_1_group}{Group} $\ast$}]{p\+Groups }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_a3863e5112bd3e0ee5be4770bc7b4cb5e}{}\label{class_n_z_b_1_1_file_a3863e5112bd3e0ee5be4770bc7b4cb5e} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!File@{File}}
+\index{File@{File}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{File()}{File()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+::\+File (\begin{DoxyParamCaption}\item[{\hyperlink{class_n_z_b_1_1_file}{File} \&\&}]{rv\+File }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_ab9c267164945ff326166490b427b7393}{}\label{class_n_z_b_1_1_file_ab9c267164945ff326166490b427b7393} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!````~File@{$\sim$\+File}}
+\index{````~File@{$\sim$\+File}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{$\sim$\+File()}{~File()}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+::$\sim$\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_n_z_b_1_1_file_a7baaa4ddddfbe5a63671329cf239d8f5}{}\label{class_n_z_b_1_1_file_a7baaa4ddddfbe5a63671329cf239d8f5} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Group@{get\+Group}}
+\index{get\+Group@{get\+Group}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Group()}{getGroup()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_group}{Group} \& N\+Z\+B\+::\+File\+::get\+Group (\begin{DoxyParamCaption}\item[{int}]{i\+Group }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_a286c4fc01910d1c1e9d70369d768b641}{}\label{class_n_z_b_1_1_file_a286c4fc01910d1c1e9d70369d768b641} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Group@{get\+Group}}
+\index{get\+Group@{get\+Group}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Group()}{getGroup()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{class_n_z_b_1_1_group}{Group} \& N\+Z\+B\+::\+File\+::get\+Group (\begin{DoxyParamCaption}\item[{int}]{i\+Group }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_n_z_b_1_1_file_a423866b094bc656afbb4cf6a3667c8b6}{}\label{class_n_z_b_1_1_file_a423866b094bc656afbb4cf6a3667c8b6} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Group\+Count@{get\+Group\+Count}}
+\index{get\+Group\+Count@{get\+Group\+Count}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Group\+Count()}{getGroupCount()}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+File\+::get\+Group\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_a5203542d4807f92d520c6101a8927af9}{}\label{class_n_z_b_1_1_file_a5203542d4807f92d520c6101a8927af9} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Poster@{get\+Poster}}
+\index{get\+Poster@{get\+Poster}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Poster()}{getPoster()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string\& N\+Z\+B\+::\+File\+::get\+Poster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_af093b1edbffcafdae7f37c05d6581d0e}{}\label{class_n_z_b_1_1_file_af093b1edbffcafdae7f37c05d6581d0e} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Poster@{get\+Poster}}
+\index{get\+Poster@{get\+Poster}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Poster()}{getPoster()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const std\+::string\& N\+Z\+B\+::\+File\+::get\+Poster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_a5f4d723636e54b354f89c34cd3e578cb}{}\label{class_n_z_b_1_1_file_a5f4d723636e54b354f89c34cd3e578cb} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Segment@{get\+Segment}}
+\index{get\+Segment@{get\+Segment}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Segment()}{getSegment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_segment}{Segment} \& N\+Z\+B\+::\+File\+::get\+Segment (\begin{DoxyParamCaption}\item[{int}]{i\+Segment }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_a092df4f0a0e79ebf21c033f45d83b67f}{}\label{class_n_z_b_1_1_file_a092df4f0a0e79ebf21c033f45d83b67f} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Segment@{get\+Segment}}
+\index{get\+Segment@{get\+Segment}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Segment()}{getSegment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{class_n_z_b_1_1_segment}{Segment} \& N\+Z\+B\+::\+File\+::get\+Segment (\begin{DoxyParamCaption}\item[{int}]{i\+Segment }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_n_z_b_1_1_file_a2aab94f806e5cc265413e3ad4d7e5ec2}{}\label{class_n_z_b_1_1_file_a2aab94f806e5cc265413e3ad4d7e5ec2} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Segment\+Count@{get\+Segment\+Count}}
+\index{get\+Segment\+Count@{get\+Segment\+Count}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Segment\+Count()}{getSegmentCount()}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+File\+::get\+Segment\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_a1110d411e6e7fd3ecb9b7f74e476924b}{}\label{class_n_z_b_1_1_file_a1110d411e6e7fd3ecb9b7f74e476924b} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Subject@{get\+Subject}}
+\index{get\+Subject@{get\+Subject}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Subject()}{getSubject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string\& N\+Z\+B\+::\+File\+::get\+Subject (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_aa14b0404ce708a3cd15c7aa6803704ee}{}\label{class_n_z_b_1_1_file_aa14b0404ce708a3cd15c7aa6803704ee} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Subject@{get\+Subject}}
+\index{get\+Subject@{get\+Subject}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Subject()}{getSubject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const std\+::string\& N\+Z\+B\+::\+File\+::get\+Subject (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_a01adb6cd77a2f9546043aec2d8fef936}{}\label{class_n_z_b_1_1_file_a01adb6cd77a2f9546043aec2d8fef936} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!get\+Timestamp@{get\+Timestamp}}
+\index{get\+Timestamp@{get\+Timestamp}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{get\+Timestamp()}{getTimestamp()}}
+{\footnotesize\ttfamily time\+\_\+t N\+Z\+B\+::\+File\+::get\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_a29355ed8ab7a8bd97588b8a1ade358de}{}\label{class_n_z_b_1_1_file_a29355ed8ab7a8bd97588b8a1ade358de} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!operator=@{operator=}}
+\index{operator=@{operator=}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_file}{File} \& N\+Z\+B\+::\+File\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{class_n_z_b_1_1_file}{File} \&\&}]{rv\+File }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_a3316ed024ea100d7afefcc9f5bcba25f}{}\label{class_n_z_b_1_1_file_a3316ed024ea100d7afefcc9f5bcba25f} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!set\+Groups@{set\+Groups}}
+\index{set\+Groups@{set\+Groups}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{set\+Groups()}{setGroups()}}
+{\footnotesize\ttfamily void N\+Z\+B\+::\+File\+::set\+Groups (\begin{DoxyParamCaption}\item[{int}]{count,  }\item[{\hyperlink{class_n_z_b_1_1_group}{Group} $\ast$}]{p\+Groups }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_a35796f99c09199259761c16295635349}{}\label{class_n_z_b_1_1_file_a35796f99c09199259761c16295635349} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!set\+Segments@{set\+Segments}}
+\index{set\+Segments@{set\+Segments}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{set\+Segments()}{setSegments()}}
+{\footnotesize\ttfamily void N\+Z\+B\+::\+File\+::set\+Segments (\begin{DoxyParamCaption}\item[{int}]{count,  }\item[{\hyperlink{class_n_z_b_1_1_segment}{Segment} $\ast$}]{p\+Segments }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_n_z_b_1_1_file_aaf96258452951818ba93e90a5f0de6b6}{}\label{class_n_z_b_1_1_file_aaf96258452951818ba93e90a5f0de6b6} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!m\+Group\+Count@{m\+Group\+Count}}
+\index{m\+Group\+Count@{m\+Group\+Count}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{m\+Group\+Count}{mGroupCount}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+File\+::m\+Group\+Count\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_file_a1afca4ebb4dd759001b70e64ae4c8136}{}\label{class_n_z_b_1_1_file_a1afca4ebb4dd759001b70e64ae4c8136} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!mp\+Groups@{mp\+Groups}}
+\index{mp\+Groups@{mp\+Groups}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{mp\+Groups}{mpGroups}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_group}{Group}$\ast$ N\+Z\+B\+::\+File\+::mp\+Groups\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_file_ad50b2da39f242433c24ae28be16a2429}{}\label{class_n_z_b_1_1_file_ad50b2da39f242433c24ae28be16a2429} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!m\+Poster@{m\+Poster}}
+\index{m\+Poster@{m\+Poster}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{m\+Poster}{mPoster}}
+{\footnotesize\ttfamily std\+::string N\+Z\+B\+::\+File\+::m\+Poster\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_file_ad8d7a8167b46230dd86439cb95a98cb7}{}\label{class_n_z_b_1_1_file_ad8d7a8167b46230dd86439cb95a98cb7} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!mp\+Segments@{mp\+Segments}}
+\index{mp\+Segments@{mp\+Segments}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{mp\+Segments}{mpSegments}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_segment}{Segment}$\ast$ N\+Z\+B\+::\+File\+::mp\+Segments\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_file_a7b60730fb288ccc891a16256a935dbba}{}\label{class_n_z_b_1_1_file_a7b60730fb288ccc891a16256a935dbba} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!m\+Segment\+Count@{m\+Segment\+Count}}
+\index{m\+Segment\+Count@{m\+Segment\+Count}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{m\+Segment\+Count}{mSegmentCount}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+File\+::m\+Segment\+Count\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_file_a426bdfb4be69a92a56afa2fe0d16e522}{}\label{class_n_z_b_1_1_file_a426bdfb4be69a92a56afa2fe0d16e522} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!m\+Subject@{m\+Subject}}
+\index{m\+Subject@{m\+Subject}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{m\+Subject}{mSubject}}
+{\footnotesize\ttfamily std\+::string N\+Z\+B\+::\+File\+::m\+Subject\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_file_a57e957204ffcb538b70c98a9c000e6ab}{}\label{class_n_z_b_1_1_file_a57e957204ffcb538b70c98a9c000e6ab} 
+\index{N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}!m\+Timestamp@{m\+Timestamp}}
+\index{m\+Timestamp@{m\+Timestamp}!N\+Z\+B\+::\+File@{N\+Z\+B\+::\+File}}
+\subsubsection{\texorpdfstring{m\+Timestamp}{mTimestamp}}
+{\footnotesize\ttfamily time\+\_\+t N\+Z\+B\+::\+File\+::m\+Timestamp\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/include/libusenet/\hyperlink{nzb_8h}{nzb.\+h}\item 
+src/\hyperlink{nzb_8cpp}{nzb.\+cpp}\end{DoxyCompactItemize}

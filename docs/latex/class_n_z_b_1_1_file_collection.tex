@@ -1,0 +1,187 @@
+\hypertarget{class_n_z_b_1_1_file_collection}{}\section{N\+ZB\+:\+:File\+Collection Class Reference}
+\label{class_n_z_b_1_1_file_collection}\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+
+
+{\ttfamily \#include $<$nzb.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_n_z_b_1_1_file_collection_a2ae200e24e6a4ee4d1be8e649f72aba9}{File\+Collection} ()
+\item 
+\hyperlink{class_n_z_b_1_1_file_collection_a76662806b20ecb79fb1c4800df2ee9df}{File\+Collection} (int file\+Count, int segment\+Count, int group\+Count)
+\item 
+\hyperlink{class_n_z_b_1_1_file_collection_ab14971382a51c26233307404bacfa8e6}{File\+Collection} (\hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \&\&rv\+Collection)
+\item 
+\hyperlink{class_n_z_b_1_1_file_collection_a1eeded48503a89ccc75e7446df3f7e3f}{File\+Collection} (const \hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \&)=delete
+\item 
+\hyperlink{class_n_z_b_1_1_file_collection_a6d6986c488c8124efea37ef187589b88}{$\sim$\+File\+Collection} ()
+\item 
+int \hyperlink{class_n_z_b_1_1_file_collection_a33c0008fc18310d0a89fd72c38586c9a}{get\+File\+Count} () const
+\item 
+\hyperlink{class_n_z_b_1_1_file}{File} $\ast$ \hyperlink{class_n_z_b_1_1_file_collection_a921a80a0f09e9bd067566e236e5c688a}{get\+Files} ()
+\item 
+const \hyperlink{class_n_z_b_1_1_file}{File} $\ast$ \hyperlink{class_n_z_b_1_1_file_collection_a8b13dca0410b84a05aaeabe7e819b8cd}{get\+Files} () const
+\item 
+\hyperlink{class_n_z_b_1_1_file}{File} \& \hyperlink{class_n_z_b_1_1_file_collection_a60d75d8e870b9360ff0f03596ffd3885}{operator\mbox{[}$\,$\mbox{]}} (int i\+File)
+\item 
+const \hyperlink{class_n_z_b_1_1_file}{File} \& \hyperlink{class_n_z_b_1_1_file_collection_a169b09f36849f6e0c842939ae61cc383}{operator\mbox{[}$\,$\mbox{]}} (int i\+File) const
+\item 
+\hyperlink{class_n_z_b_1_1_file}{File} $\ast$ \hyperlink{class_n_z_b_1_1_file_collection_a26b50aedb8d73b4fba8aef7792c9f699}{begin} ()
+\item 
+\hyperlink{class_n_z_b_1_1_file}{File} $\ast$ \hyperlink{class_n_z_b_1_1_file_collection_ad792a3e63dad005cb44f6aa89a836673}{end} ()
+\item 
+const \hyperlink{class_n_z_b_1_1_file}{File} $\ast$ \hyperlink{class_n_z_b_1_1_file_collection_a9f357afe639a9fd066539466b9ce5d47}{begin} () const
+\item 
+const \hyperlink{class_n_z_b_1_1_file}{File} $\ast$ \hyperlink{class_n_z_b_1_1_file_collection_a781f4a5fec907bc7e46e144a300dd174}{end} () const
+\item 
+void \hyperlink{class_n_z_b_1_1_file_collection_a4caeac68cec4f2bd02fe82255ba52d33}{alloc} (int file\+Count, int segment\+Count, int group\+Count)
+\item 
+void \hyperlink{class_n_z_b_1_1_file_collection_a8888183a256a7afbbbdde5b19f2fbf9f}{free} ()
+\item 
+\hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \& \hyperlink{class_n_z_b_1_1_file_collection_a974ea8d9e7851511eddf7c6bbb82741f}{operator=} (\hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \&\&rv\+Collection)
+\item 
+\hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \& \hyperlink{class_n_z_b_1_1_file_collection_a9a39412f971ae08850615fd4eaca730a}{operator=} (const \hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \&)=delete
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ unsigned char\mbox{[}$\,$\mbox{]}$>$ \hyperlink{class_n_z_b_1_1_file_collection_aee454b60ab12185c5328e950d5b1d444}{mp\+Mem}
+\item 
+int \hyperlink{class_n_z_b_1_1_file_collection_a54a530b2c5e4e487d588eee98e403cbe}{m\+File\+Count}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_n_z_b_1_1_file_collection_a2ae200e24e6a4ee4d1be8e649f72aba9}{}\label{class_n_z_b_1_1_file_collection_a2ae200e24e6a4ee4d1be8e649f72aba9} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!File\+Collection@{File\+Collection}}
+\index{File\+Collection@{File\+Collection}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{File\+Collection()}{FileCollection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+Collection\+::\+File\+Collection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a76662806b20ecb79fb1c4800df2ee9df}{}\label{class_n_z_b_1_1_file_collection_a76662806b20ecb79fb1c4800df2ee9df} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!File\+Collection@{File\+Collection}}
+\index{File\+Collection@{File\+Collection}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{File\+Collection()}{FileCollection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+Collection\+::\+File\+Collection (\begin{DoxyParamCaption}\item[{int}]{file\+Count,  }\item[{int}]{segment\+Count,  }\item[{int}]{group\+Count }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_collection_ab14971382a51c26233307404bacfa8e6}{}\label{class_n_z_b_1_1_file_collection_ab14971382a51c26233307404bacfa8e6} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!File\+Collection@{File\+Collection}}
+\index{File\+Collection@{File\+Collection}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{File\+Collection()}{FileCollection()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+Collection\+::\+File\+Collection (\begin{DoxyParamCaption}\item[{\hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \&\&}]{rv\+Collection }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a1eeded48503a89ccc75e7446df3f7e3f}{}\label{class_n_z_b_1_1_file_collection_a1eeded48503a89ccc75e7446df3f7e3f} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!File\+Collection@{File\+Collection}}
+\index{File\+Collection@{File\+Collection}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{File\+Collection()}{FileCollection()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+Collection\+::\+File\+Collection (\begin{DoxyParamCaption}\item[{const \hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a6d6986c488c8124efea37ef187589b88}{}\label{class_n_z_b_1_1_file_collection_a6d6986c488c8124efea37ef187589b88} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!````~File\+Collection@{$\sim$\+File\+Collection}}
+\index{````~File\+Collection@{$\sim$\+File\+Collection}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{$\sim$\+File\+Collection()}{~FileCollection()}}
+{\footnotesize\ttfamily N\+Z\+B\+::\+File\+Collection\+::$\sim$\+File\+Collection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_n_z_b_1_1_file_collection_a4caeac68cec4f2bd02fe82255ba52d33}{}\label{class_n_z_b_1_1_file_collection_a4caeac68cec4f2bd02fe82255ba52d33} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!alloc@{alloc}}
+\index{alloc@{alloc}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{alloc()}{alloc()}}
+{\footnotesize\ttfamily void N\+Z\+B\+::\+File\+Collection\+::alloc (\begin{DoxyParamCaption}\item[{int}]{file\+Count,  }\item[{int}]{segment\+Count,  }\item[{int}]{group\+Count }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a26b50aedb8d73b4fba8aef7792c9f699}{}\label{class_n_z_b_1_1_file_collection_a26b50aedb8d73b4fba8aef7792c9f699} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!begin@{begin}}
+\index{begin@{begin}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_file}{File} $\ast$ N\+Z\+B\+::\+File\+Collection\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a9f357afe639a9fd066539466b9ce5d47}{}\label{class_n_z_b_1_1_file_collection_a9f357afe639a9fd066539466b9ce5d47} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!begin@{begin}}
+\index{begin@{begin}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{class_n_z_b_1_1_file}{File} $\ast$ N\+Z\+B\+::\+File\+Collection\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_n_z_b_1_1_file_collection_ad792a3e63dad005cb44f6aa89a836673}{}\label{class_n_z_b_1_1_file_collection_ad792a3e63dad005cb44f6aa89a836673} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!end@{end}}
+\index{end@{end}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_file}{File} $\ast$ N\+Z\+B\+::\+File\+Collection\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a781f4a5fec907bc7e46e144a300dd174}{}\label{class_n_z_b_1_1_file_collection_a781f4a5fec907bc7e46e144a300dd174} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!end@{end}}
+\index{end@{end}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{class_n_z_b_1_1_file}{File} $\ast$ N\+Z\+B\+::\+File\+Collection\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a8888183a256a7afbbbdde5b19f2fbf9f}{}\label{class_n_z_b_1_1_file_collection_a8888183a256a7afbbbdde5b19f2fbf9f} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!free@{free}}
+\index{free@{free}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{free()}{free()}}
+{\footnotesize\ttfamily void N\+Z\+B\+::\+File\+Collection\+::free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a33c0008fc18310d0a89fd72c38586c9a}{}\label{class_n_z_b_1_1_file_collection_a33c0008fc18310d0a89fd72c38586c9a} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!get\+File\+Count@{get\+File\+Count}}
+\index{get\+File\+Count@{get\+File\+Count}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{get\+File\+Count()}{getFileCount()}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+File\+Collection\+::get\+File\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a921a80a0f09e9bd067566e236e5c688a}{}\label{class_n_z_b_1_1_file_collection_a921a80a0f09e9bd067566e236e5c688a} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!get\+Files@{get\+Files}}
+\index{get\+Files@{get\+Files}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{get\+Files()}{getFiles()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_file}{File}$\ast$ N\+Z\+B\+::\+File\+Collection\+::get\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a8b13dca0410b84a05aaeabe7e819b8cd}{}\label{class_n_z_b_1_1_file_collection_a8b13dca0410b84a05aaeabe7e819b8cd} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!get\+Files@{get\+Files}}
+\index{get\+Files@{get\+Files}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{get\+Files()}{getFiles()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{class_n_z_b_1_1_file}{File}$\ast$ N\+Z\+B\+::\+File\+Collection\+::get\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a974ea8d9e7851511eddf7c6bbb82741f}{}\label{class_n_z_b_1_1_file_collection_a974ea8d9e7851511eddf7c6bbb82741f} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!operator=@{operator=}}
+\index{operator=@{operator=}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \& N\+Z\+B\+::\+File\+Collection\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \&\&}]{rv\+Collection }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a9a39412f971ae08850615fd4eaca730a}{}\label{class_n_z_b_1_1_file_collection_a9a39412f971ae08850615fd4eaca730a} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!operator=@{operator=}}
+\index{operator=@{operator=}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection}\& N\+Z\+B\+::\+File\+Collection\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_n_z_b_1_1_file_collection}{File\+Collection} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a60d75d8e870b9360ff0f03596ffd3885}{}\label{class_n_z_b_1_1_file_collection_a60d75d8e870b9360ff0f03596ffd3885} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{class_n_z_b_1_1_file}{File} \& N\+Z\+B\+::\+File\+Collection\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i\+File }\end{DoxyParamCaption})}
+
+\hypertarget{class_n_z_b_1_1_file_collection_a169b09f36849f6e0c842939ae61cc383}{}\label{class_n_z_b_1_1_file_collection_a169b09f36849f6e0c842939ae61cc383} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{class_n_z_b_1_1_file}{File} \& N\+Z\+B\+::\+File\+Collection\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i\+File }\end{DoxyParamCaption}) const}
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_n_z_b_1_1_file_collection_a54a530b2c5e4e487d588eee98e403cbe}{}\label{class_n_z_b_1_1_file_collection_a54a530b2c5e4e487d588eee98e403cbe} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!m\+File\+Count@{m\+File\+Count}}
+\index{m\+File\+Count@{m\+File\+Count}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{m\+File\+Count}{mFileCount}}
+{\footnotesize\ttfamily int N\+Z\+B\+::\+File\+Collection\+::m\+File\+Count\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_n_z_b_1_1_file_collection_aee454b60ab12185c5328e950d5b1d444}{}\label{class_n_z_b_1_1_file_collection_aee454b60ab12185c5328e950d5b1d444} 
+\index{N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}!mp\+Mem@{mp\+Mem}}
+\index{mp\+Mem@{mp\+Mem}!N\+Z\+B\+::\+File\+Collection@{N\+Z\+B\+::\+File\+Collection}}
+\subsubsection{\texorpdfstring{mp\+Mem}{mpMem}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$unsigned char\mbox{[}$\,$\mbox{]}$>$ N\+Z\+B\+::\+File\+Collection\+::mp\+Mem\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/include/libusenet/\hyperlink{nzb_8h}{nzb.\+h}\item 
+src/\hyperlink{nzb_8cpp}{nzb.\+cpp}\end{DoxyCompactItemize}

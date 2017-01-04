@@ -1,0 +1,21 @@
+\hypertarget{sockstream_8cpp}{}\section{src/sockstream.cpp File Reference}
+\label{sockstream_8cpp}\index{src/sockstream.\+cpp@{src/sockstream.\+cpp}}
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$cerrno$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$libusenet/sockstream$>$}\newline
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace_net_stream}{Net\+Stream}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ addrinfo, void($\ast$)(addrinfo $\ast$)$>$ \hyperlink{namespace_net_stream_a16439cfeb72360d45966b99b4a7b3382}{Net\+Stream\+::get\+\_\+addr\+\_\+info} (const char $\ast$node, const char $\ast$service)
+\item 
+bool \hyperlink{namespace_net_stream_a6a60ac76dea0a753f8ddea79f5307d16}{Net\+Stream\+::connect\+\_\+socket} (int sockfd, const sockaddr $\ast$p\+\_\+addr, socklen\+\_\+t addrlen)
+\end{DoxyCompactItemize}
