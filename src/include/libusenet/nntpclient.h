@@ -25,6 +25,7 @@
 #include <system_error>
 #include <memory>
 #include <string>
+#include <istream>
 #include <sys/socket.h>
 
 #include "options.h"
@@ -130,6 +131,7 @@ public:
 // operations
 public:
 
+	Response& read(std::istream& is);
 	Response& clear() { m_len = 0; return *this; }
 
 	Response& operator =(const Response&) = default;
@@ -155,6 +157,12 @@ public:
 	Connection(Connection&& transConnection);
 	Connection(const Connection&) = delete;
 	virtual ~Connection();
+
+// attributes
+public:
+
+	int get_timeout() const;
+	void set_timeout(int seconds);
 
 // operations
 public:
@@ -240,5 +248,11 @@ protected:
 #endif  /* LIBUSENET_USE_SSL */
 
 }	// NntpClient
+
+inline std::istream& operator >>(std::istream& is, NntpClient::Response& r)
+{
+	r.read(is);
+	return is;
+}
 
 #endif	/* __NNTP_CLIENT_HEADER__ */

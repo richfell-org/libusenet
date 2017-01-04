@@ -439,7 +439,7 @@ protected:
 		while(1 != (ssl_status = SSL_connect(stream_type::m_buf.get_ssl())))
 		{
 			// check for the causing error code, just retry SSL_conenct on WANT_READ/WRITE
-			int errnum = SSL_get_error(m_sslptr.get(), ssl_status);
+			int errnum = SSL_get_error(stream_type::m_buf.get_ssl(), ssl_status);
 			if((SSL_ERROR_WANT_READ == errnum) || (SSL_ERROR_WANT_WRITE == errnum))
 				continue;
 

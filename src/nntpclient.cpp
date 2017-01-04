@@ -152,6 +152,13 @@ int Response::get_number() const
 	return result;
 }
 
+Response& Response::read(std::istream& is)
+{
+	is.getline(m_buf, 1024);
+	m_len = is.gcount();
+	return *this;
+}
+
 //#include <sys/stat.h>
 
 Connection::Connection()
@@ -232,6 +239,22 @@ Connection& Connection::operator =(Connection&& transConnection)
 Connection::~Connection()
 {
 	close();
+}
+
+int Connection::get_timeout() const
+{
+	struct timeval to_time = { 0, 0, };
+	socklen_t optValLen = sizeof(to_time);
+	if(0 != getsockopt(m_sock, SOL_SOCKET, SO_RCVTIMEO, &to_time, &optValLen))
+		throw std::runtime_error(strerror(errno));
+	return to_time.tv_sec;
+}
+
+void Connection::set_timeout(int seconds)
+{
+	struct timeval to_time = { seconds, 0, };
+	if(0 != setsockopt(m_sock, SOL_SOCKET, SO_RCVTIMEO, &to_time, sizeof(to_time)))
+		throw std::runtime_error(strerror(errno));
 }
 
 void Connection::open(const ServerAddr& server, Response& response)
