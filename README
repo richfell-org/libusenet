@@ -1,0 +1,7 @@
+A C++ library with usenet/NZB related objects
+
+Requires:
+---------
+
+libssl if building with --enable-ssl
+The Expat XML Parser (libexpat) version 2 or higher (http://expat.sourceforge.net/)
