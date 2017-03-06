@@ -20,6 +20,7 @@
 #include "expatParse.h"
 #include <libusenet/nzb.h>
 #include <fstream>
+#include <sstream>
 #include <stdlib.h>
 #include <string.h>
 
@@ -198,14 +199,13 @@ void Pass2ParseHandler::characterData(const XML_Char *s, int len)
 	}
 }
 
-FileCollection parseFile(const char *path)
+FileCollection parse(std::istream& in)
 {
-	std::ifstream fileIn(path);
 	Expat::Parser parser;
 	Pass1ParseHandler pass1Handler;
 
 	// pass 1: count the NZB entities and allocate memory based on the counts
-	parser.parseFile(pass1Handler, fileIn);
+	parser.parseFile(pass1Handler, in);
 	FileCollection fileCollection(
 		pass1Handler.getFileCount(),
 		pass1Handler.getSegmentCount(),
@@ -217,13 +217,25 @@ FileCollection parseFile(const char *path)
 	NZB::Group *pGroups = (NZB::Group*)&pSegments[pass1Handler.getSegmentCount()];
 
 	// pass 2: parse content of <file ... />, <segment ... /> and <group ... /> tags
-	fileIn.clear();
-	fileIn.seekg(0, fileIn.beg);
+	in.clear();
+	in.seekg(0);
 	parser.reset();
 	Pass2ParseHandler pass2Handler(pFiles, pSegments, pGroups);
-	parser.parseFile(pass2Handler, fileIn);
+	parser.parseFile(pass2Handler, in);
 
 	return fileCollection;
+}
+
+FileCollection parse(const std::string& nzb_str)
+{
+	std::istringstream in(nzb_str);
+	return parse(in);
+}
+
+FileCollection parseFile(const char *path)
+{
+	std::ifstream fileIn(path);
+	return parse(fileIn);
 }
 
 } } // namespace NZB::Parse

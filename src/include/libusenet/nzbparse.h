@@ -21,9 +21,13 @@
 #define __NZB_PARSE_HEADER__
 
 #include <libusenet/nzb.h>
+#include <string>
+#include <istream>
 
 namespace NZB { namespace Parse {
 
+FileCollection parse(std::istream& in);
+FileCollection parse(const std::string& nzb_str);
 FileCollection parseFile(const char *path);
 
 } } // namespace NZB::Parse
